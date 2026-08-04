@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" role="img" aria-labelledby="title desc">
+  <title id="title">Flujo Given When Then</title>
+  <desc id="desc">Un escenario BDD se organiza como condición inicial, acción y resultado observable.</desc>
+  <defs><linearGradient id="bg" x1="0" x2="1"><stop stop-color="#121b35"/><stop offset="1" stop-color="#0b1020"/></linearGradient><linearGradient id="path" x1="0" x2="1"><stop stop-color="#c09cff"/><stop offset=".5" stop-color="#8ca5ff"/><stop offset="1" stop-color="#76e2ae"/></linearGradient></defs>
+  <rect width="800" height="320" rx="28" fill="url(#bg)"/>
+  <text x="38" y="44" fill="#5be6da" font-family="monospace" font-size="12" letter-spacing="2">BDD / OBSERVABLE BEHAVIOR</text>
+  <path d="M105 160h590" stroke="#293454" stroke-width="3" stroke-dasharray="5 8"/>
+  <path d="M105 160h590" stroke="url(#path)" stroke-width="2" stroke-dasharray="1 18" stroke-linecap="round"/>
+  <g font-family="system-ui, sans-serif">
+    <g transform="translate(55 90)"><circle cx="50" cy="70" r="49" fill="#332958" stroke="#c09cff" stroke-width="2"/><text x="50" y="65" text-anchor="middle" fill="#c09cff" font-size="18" font-weight="700">Given</text><text x="50" y="84" text-anchor="middle" fill="#9ba8c5" font-size="11">contexto</text><text x="50" y="138" text-anchor="middle" fill="#f2f5ff" font-size="13" font-weight="700">Dado que</text><text x="50" y="158" text-anchor="middle" fill="#9ba8c5" font-size="11">la condición existe</text></g>
+    <g transform="translate(295 90)"><circle cx="50" cy="70" r="49" fill="#263b76" stroke="#8ca5ff" stroke-width="2"/><text x="50" y="65" text-anchor="middle" fill="#8ca5ff" font-size="18" font-weight="700">When</text><text x="50" y="84" text-anchor="middle" fill="#9ba8c5" font-size="11">evento</text><text x="50" y="138" text-anchor="middle" fill="#f2f5ff" font-size="13" font-weight="700">Cuando</text><text x="50" y="158" text-anchor="middle" fill="#9ba8c5" font-size="11">el usuario actúa</text></g>
+    <g transform="translate(535 90)"><circle cx="50" cy="70" r="49" fill="#173e3a" stroke="#76e2ae" stroke-width="2"/><text x="50" y="65" text-anchor="middle" fill="#76e2ae" font-size="18" font-weight="700">Then</text><text x="50" y="84" text-anchor="middle" fill="#9ba8c5" font-size="11">resultado</text><text x="50" y="138" text-anchor="middle" fill="#f2f5ff" font-size="13" font-weight="700">Entonces</text><text x="50" y="158" text-anchor="middle" fill="#9ba8c5" font-size="11">podemos observar</text></g>
+  </g>
+</svg>

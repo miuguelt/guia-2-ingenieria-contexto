@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guía web interactiva de ADSO sobre requisitos funcionales y no funcionales, arquitectura, infraestructura, Docker, VPS, Coolify e IA.">
+  <meta name="theme-color" content="#0b1020">
+  <title>Guía 2 · Ingeniería de Contexto | ADSO</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="site-header" id="inicio">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Inicio de Guía 2">
+        <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+        <span>
+          <strong>ADSO<span class="brand-dot">.</span></strong>
+          <small>Guía interactiva 02</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <a href="#contexto" data-scroll>Contexto</a>
+        <a href="#fundamentos" data-scroll>Fundamentos</a>
+        <a href="#requisitos" data-scroll>Requisitos</a>
+        <a href="#laboratorio" data-scroll>Laboratorio</a>
+        <a href="#arquitectura" data-scroll>Arquitectura</a>
+        <a href="#desafio" data-scroll>Desafío</a>
+      </nav>
+
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir navegación">
+        <span></span><span></span><span></span>
+      </button>
+      <button class="icon-button" id="theme-toggle" type="button" aria-label="Cambiar tema" title="Cambiar tema">
+        <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 0 1 11.2 3a8.5 8.5 0 1 0 9.8 9.8Z"></path></svg>
+      </button>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero section-pad" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span class="status-dot"></span> Ruta de aprendizaje · ADSO</p>
+          <h1 id="hero-title">Convierte ideas ambiguas en software <span class="text-gradient">verificable.</span></h1>
+          <p class="hero-lede">Guía 2 · Ingeniería de Contexto, Historias de Usuario y sintaxis BDD (Gherkin).</p>
+          <p class="hero-description">En la era de la IA, un requerimiento claro no es burocracia: es el contexto que permite que personas, equipos y máquinas construyan la misma solución.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#laboratorio" data-scroll>Ir al laboratorio <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#fundamentos" data-scroll>Explorar conceptos <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="Flujo visual desde una idea hasta un criterio verificable">
+          <div class="code-window">
+            <div class="window-bar"><span></span><span></span><span></span><small>requirement.flow</small></div>
+            <div class="code-lines" aria-hidden="true">
+              <p><i>01</i><b class="code-key">context</b> <span>=</span> <em>"idea del cliente"</em></p>
+              <p><i>02</i><b class="code-key">story</b> <span>=</span> <em>"Como / quiero / para"</em></p>
+              <p><i>03</i><b class="code-key">scenario</b> <span>=</span> <em>"Given / When / Then"</em></p>
+              <p><i>04</i><b class="code-key">clarity</b> <span>=</span> <strong>true</strong></p>
+              <p><i>05</i><span class="cursor-line">▌</span></p>
+            </div>
+          </div>
+          <div class="floating-chip chip-context"><span>01</span> contexto</div>
+          <div class="floating-chip chip-check"><span>✓</span> verificable</div>
+        </div>
+      </div>
+
+      <div class="container rap-callout reveal">
+        <div class="rap-label">RAP 02</div>
+        <div>
+          <p class="overline">Resultado de aprendizaje</p>
+          <p class="rap-text">Establecer los requisitos del software de acuerdo con la información recolectada.</p>
+        </div>
+        <div class="rap-meta"><span class="pulse-ring"></span> Enfoque: precisión + contexto</div>
+      </div>
+    </section>
+
+    <section class="section-pad context-section" id="contexto" aria-labelledby="context-title">
+      <div class="container">
+        <div class="section-heading context-heading reveal">
+          <div>
+            <p class="eyebrow">00 · Ingeniería de contexto</p>
+            <h2 id="context-title">La IA puede generar código. <span class="muted-text">No puede adivinar tu intención.</span></h2>
+          </div>
+          <p class="section-intro">El contexto convierte conversaciones, restricciones y decisiones del negocio en información útil para diseñar.</p>
+        </div>
+
+        <div class="context-grid">
+          <div class="context-copy reveal">
+            <div class="context-principle"><span class="principle-mark">01</span><div><h3>Pregunta antes de completar</h3><p>Cuando una frase permite varias interpretaciones, el equipo debe detenerse y recolectar información. Es más barato aclarar una palabra hoy que corregir un producto mañana.</p></div></div>
+            <div class="context-principle"><span class="principle-mark">02</span><div><h3>Conserva el porqué</h3><p>El beneficio explica la decisión. Si solo documentamos botones y pantallas, perdemos la oportunidad de evaluar si la solución realmente aporta valor.</p></div></div>
+            <div class="context-principle"><span class="principle-mark">03</span><div><h3>Haz visible lo verificable</h3><p>Un buen requisito permite imaginar una prueba: una condición, una acción y un resultado que otra persona puede observar.</p></div></div>
+          </div>
+          <figure class="context-figure reveal">
+            <img src="assets/requirements-map.svg" alt="Mapa visual: una idea ambigua pasa por contexto e historia de usuario hasta convertirse en un requisito verificable" loading="lazy" width="800" height="430">
+            <figcaption><span class="caption-dot"></span> El contexto reduce el espacio para interpretar.</figcaption>
+          </figure>
+        </div>
+
+        <div class="quality-strip reveal" aria-label="Cuatro filtros para revisar un requisito">
+          <div><span class="quality-icon">C</span><strong>Claro</strong><small>Una sola interpretación</small></div>
+          <div><span class="quality-icon">I</span><strong>Completo</strong><small>Actor, acción y valor</small></div>
+          <div><span class="quality-icon">V</span><strong>Verificable</strong><small>Se puede probar</small></div>
+          <div><span class="quality-icon">T</span><strong>Trazable</strong><small>Conecta con el objetivo</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad section-dark" id="fundamentos" aria-labelledby="fundamentos-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">01 · Fundamentos</p>
+            <h2 id="fundamentos-title">Primero entiende el problema. <span class="muted-text">Luego escribe la solución.</span></h2>
+          </div>
+          <p class="section-intro">La ingeniería de requisitos conecta la necesidad del negocio con un comportamiento que el equipo puede desarrollar y probar.</p>
+        </div>
+
+        <div class="analogy-grid">
+          <article class="concept-card functional-card reveal">
+            <div class="card-topline"><span class="card-index">01</span><span class="pill pill-green">Hace algo</span></div>
+            <div class="concept-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M11 37h42M15 37l3-16h28l3 16M18 37v9M46 37v9M21 21l4-8h14l4 8M24 46h-5a4 4 0 0 0-4 4v1h30v-1a4 4 0 0 0-4-4h-5"></path><circle cx="22" cy="38" r="4"></circle><circle cx="42" cy="38" r="4"></circle></svg></div>
+            <h3>Requisito funcional</h3>
+            <p class="analogy-title">El motor del auto</p>
+            <p>Describe <strong>qué hace</strong> el sistema: una acción observable, una regla o una respuesta ante un evento.</p>
+            <div class="example-box"><span class="example-label">Ejemplo</span>La plataforma permite al aprendiz consultar su progreso.</div>
+          </article>
+
+          <article class="concept-card nonfunctional-card reveal">
+            <div class="card-topline"><span class="card-index">02</span><span class="pill pill-purple">Cómo debe hacerlo</span></div>
+            <div class="concept-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32 9 51 17v14c0 12-8 20-19 25-11-5-19-13-19-25V17l19-8Z"></path><path d="m24 32 5 5 11-12"></path></svg></div>
+            <h3>Requisito no funcional</h3>
+            <p class="analogy-title">La seguridad de los frenos</p>
+            <p>Define <strong>cómo debe comportarse</strong>: rendimiento, seguridad, accesibilidad, disponibilidad o restricciones.</p>
+            <div class="example-box"><span class="example-label">Ejemplo</span>El progreso debe mostrarse en menos de 2 segundos.</div>
+          </article>
+
+          <aside class="bridge-card reveal">
+            <div class="bridge-line"><span>necesidad</span><span class="line"></span><span>especificación</span></div>
+            <h3>El puente humano–máquina</h3>
+            <p>La plantilla de Historia de Usuario mantiene la intención del usuario dentro de una frase que el equipo puede convertir en comportamiento.</p>
+            <div class="story-template">
+              <span>Como</span><strong>[rol]</strong><span>quiero</span><strong>[acción]</strong><span>para</span><strong>[beneficio]</strong>
+            </div>
+            <p class="bridge-note"><span class="spark">✦</span> La estructura obliga a nombrar quién, qué y para qué.</p>
+          </aside>
+        </div>
+
+        <div class="anatomy-section reveal">
+          <div class="mini-heading"><p class="eyebrow">Anatomía de una historia</p><span class="line-label">01 — 03</span></div>
+          <div class="anatomy-grid">
+            <div class="anatomy-item"><span class="anatomy-number">01</span><div><h4>Rol</h4><p>¿Quién necesita esta capacidad?</p></div></div>
+            <div class="anatomy-item"><span class="anatomy-number">02</span><div><h4>Acción</h4><p>¿Qué quiere poder hacer?</p></div></div>
+            <div class="anatomy-item"><span class="anatomy-number">03</span><div><h4>Beneficio</h4><p>¿Qué valor obtiene y por qué importa?</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad requirements-section" id="requisitos" aria-labelledby="requirements-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">02 · Profundización</p>
+            <h2 id="requirements-title">Especifica el qué. <span class="muted-text">Mide el cómo.</span></h2>
+          </div>
+          <p class="section-intro">Un requisito no es una frase decorativa: es una decisión que debe orientar el diseño, el desarrollo y la prueba.</p>
+        </div>
+
+        <div class="requirement-primer reveal">
+          <div>
+            <span class="primer-number">RF</span>
+            <h3>Requisitos funcionales</h3>
+            <p>Explican las capacidades y reglas del producto. Responden: <strong>¿qué debe hacer el sistema?</strong> Se escriben con un actor, una acción, datos de entrada, reglas y una respuesta observable.</p>
+          </div>
+          <div>
+            <span class="primer-number primer-purple">RNF</span>
+            <h3>Requisitos no funcionales</h3>
+            <p>Definen las condiciones de calidad o las restricciones. Responden: <strong>¿cómo debe hacerlo y bajo qué límites?</strong> Siempre que sea posible, incluyen una métrica y un contexto de medición.</p>
+          </div>
+        </div>
+
+        <div class="requirements-table-wrap reveal" role="region" aria-label="Comparación de requisitos funcionales y no funcionales" tabindex="0">
+          <table class="requirements-table">
+            <thead>
+              <tr><th>Tipo</th><th>Pregunta guía</th><th>Ejemplo bien formulado</th><th>¿Cómo se verifica?</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="table-tag tag-functional">RF-01</span></td><td>¿Qué capacidad necesita el actor?</td><td>El sistema permite al cliente confirmar un pedido con los productos disponibles.</td><td>Prueba funcional + escenario Given / When / Then.</td></tr>
+              <tr><td><span class="table-tag tag-functional">RF-02</span></td><td>¿Qué regla debe cumplirse?</td><td>Al confirmar el pedido, el sistema descuenta las unidades reservadas del inventario.</td><td>Prueba de regla de negocio y consistencia de datos.</td></tr>
+              <tr><td><span class="table-tag tag-nonfunctional">RNF-01</span></td><td>¿Qué nivel de rendimiento se espera?</td><td>El resumen del pedido responde en menos de 2 segundos para el 95 % de las solicitudes.</td><td>Prueba de carga con datos y condiciones acordadas.</td></tr>
+              <tr><td><span class="table-tag tag-nonfunctional">RNF-02</span></td><td>¿Qué restricción de seguridad aplica?</td><td>Las contraseñas se almacenan con un algoritmo de hash resistente y nunca se envían por HTTP.</td><td>Revisión técnica, análisis de configuración y prueba de seguridad.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="requirement-details-grid">
+          <article class="detail-card functional-detail reveal">
+            <div class="detail-card-head"><span class="detail-kicker">01 / RF</span><span class="pill pill-green">Comportamiento</span></div>
+            <h3>Qué suele incluir un requisito funcional</h3>
+            <ul class="check-list">
+              <li><span>01</span><div><strong>Actor y disparador</strong><small>Quién inicia la acción y qué evento la activa.</small></div></li>
+              <li><span>02</span><div><strong>Flujo principal</strong><small>Pasos que ocurren cuando todo está correcto.</small></div></li>
+              <li><span>03</span><div><strong>Reglas y excepciones</strong><small>Qué pasa si falta información, stock o permisos.</small></div></li>
+              <li><span>04</span><div><strong>Resultado y trazabilidad</strong><small>Qué observa el usuario y qué objetivo satisface.</small></div></li>
+            </ul>
+            <div class="spec-example"><span class="example-label">Ejemplo completo · RF-03</span><p><strong>Actor:</strong> administrador.</p><p><strong>Necesidad:</strong> registrar un curso con título, cupos y fecha.</p><p><strong>Regla:</strong> no se puede guardar si los cupos son menores que 1.</p><p><strong>Resultado:</strong> el curso aparece en el catálogo con estado “borrador”.</p></div>
+          </article>
+
+          <article class="detail-card nonfunctional-detail reveal">
+            <div class="detail-card-head"><span class="detail-kicker">02 / RNF</span><span class="pill pill-purple">Calidad</span></div>
+            <h3>Familias de requisitos no funcionales</h3>
+            <div class="quality-catalog">
+              <div><b>Rendimiento</b><span>tiempo de respuesta, concurrencia, consumo.</span></div>
+              <div><b>Seguridad</b><span>autenticación, autorización, cifrado, auditoría.</span></div>
+              <div><b>Disponibilidad</b><span>horario, porcentaje de uptime, recuperación.</span></div>
+              <div><b>Usabilidad</b><span>accesibilidad, aprendizaje, navegación con teclado.</span></div>
+              <div><b>Mantenibilidad</b><span>logs, pruebas, modularidad, documentación.</span></div>
+              <div><b>Compatibilidad</b><span>navegadores, dispositivos, versiones e integraciones.</span></div>
+            </div>
+            <div class="spec-example"><span class="example-label">Transforma lo vago en medible</span><p class="bad-requirement">✕ “La aplicación debe ser rápida y segura.”</p><p class="good-requirement">✓ “El 95 % de las consultas responde en menos de 2 s y la API exige HTTPS y token válido.”</p></div>
+          </article>
+        </div>
+
+        <div class="exercise-zone reveal">
+          <div class="exercise-heading"><div><p class="eyebrow">Ejercicios guiados</p><h3>Practica antes de pasar al laboratorio</h3></div><span class="exercise-count">03 retos</span></div>
+          <div class="exercise-grid">
+            <details class="exercise-card" open>
+              <summary><span class="exercise-number">01</span><span><strong>Clasifica y mejora</strong><small>¿RF o RNF?</small></span><b>+</b></summary>
+              <p>“El sistema debe ser fácil de usar y permitir reportes.” Separa la frase en dos requisitos y agrega una forma de medir cada uno.</p>
+              <div class="answer"><span>Respuesta orientadora</span><p><strong>RF:</strong> el coordinador puede generar un reporte mensual en PDF. <strong>RNF:</strong> una persona nueva completa la tarea sin ayuda en máximo 3 minutos y la interfaz puede usarse con teclado.</p></div>
+            </details>
+            <details class="exercise-card">
+              <summary><span class="exercise-number">02</span><span><strong>Construye un escenario</strong><small>Given / When / Then</small></span><b>+</b></summary>
+              <p>Convierte este RF en un criterio de aceptación: “El aprendiz consulta su progreso”. Incluye una condición inicial, una acción y un resultado visible.</p>
+              <div class="answer"><span>Ejemplo de solución</span><p><strong>Dado que</strong> el aprendiz tiene una sesión activa, <strong>cuando</strong> abre su panel, <strong>entonces</strong> observa el porcentaje actualizado y los módulos pendientes.</p></div>
+            </details>
+            <details class="exercise-card">
+              <summary><span class="exercise-number">03</span><span><strong>Traza una decisión</strong><small>Requisito → prueba</small></span><b>+</b></summary>
+              <p>Escribe un RNF para una pantalla de inicio de sesión y define qué evidencia usarías para comprobarlo.</p>
+              <div class="answer"><span>Ejemplo de solución</span><p><strong>RNF:</strong> tras enviar credenciales válidas, el usuario recibe respuesta en menos de 2 s en el 95 % de los casos. <strong>Evidencia:</strong> prueba de carga, medición de percentiles y registro de fecha, versión y entorno.</p></div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad laboratory-section" id="laboratorio" aria-labelledby="laboratorio-title">
+      <div class="container">
+        <div class="section-heading lab-heading reveal">
+          <div>
+            <p class="eyebrow">03 · Laboratorio interactivo</p>
+            <h2 id="laboratorio-title">Construye. Ordena. <span class="text-gradient">Valida.</span></h2>
+          </div>
+          <div class="lab-status"><span class="status-dot"></span><span id="lab-status-text">Simulador listo</span></div>
+        </div>
+
+        <div class="simulator-shell">
+          <section class="simulator-panel story-panel reveal" aria-labelledby="story-builder-title">
+            <div class="panel-header">
+              <div class="panel-title-group"><span class="panel-number">A</span><div><p class="overline">Constructor 01</p><h3 id="story-builder-title">Historia de Usuario</h3></div></div>
+              <span class="syntax-tag">USER_STORY</span>
+            </div>
+            <p class="panel-description">Selecciona cada pieza lógica. Una historia útil expresa valor, no solo una lista de tareas.</p>
+
+            <div class="story-controls" aria-label="Piezas de la Historia de Usuario">
+              <label class="field-group"><span>Como <small>· rol</small></span><select id="story-role"><option value="">Selecciona un rol…</option><option value="cliente">cliente</option><option value="aprendiz">aprendiz</option><option value="administrador">administrador</option><option value="usuario-autenticado">usuario autenticado</option></select></label>
+              <label class="field-group"><span>quiero <small>· acción</small></span><select id="story-action"><option value="">Selecciona una acción…</option><option value="comprar-producto">comprar un producto</option><option value="iniciar-sesion">iniciar sesión</option><option value="recuperar-contrasena">recuperar mi contraseña</option><option value="consultar-progreso">consultar mi progreso</option><option value="generar-reporte">generar un reporte</option></select></label>
+              <label class="field-group"><span>para <small>· beneficio</small></span><select id="story-benefit"><option value="">Selecciona un beneficio…</option><option value="confirmar-pedido">confirmar mi pedido</option><option value="acceder-seguro">acceder de forma segura</option><option value="recuperar-cuenta">recuperar mi cuenta</option><option value="conocer-progreso">conocer mi avance</option><option value="tomar-decisiones">tomar decisiones informadas</option></select></label>
+            </div>
+
+            <div class="story-output" aria-live="polite">
+              <div class="output-label"><span class="output-dot"></span> Vista previa compilada <button class="copy-button" data-copy-target="story-preview" type="button">Copiar</button></div>
+              <p class="story-sentence" id="story-preview"><span class="placeholder">Como [rol], quiero [acción] para [beneficio].</span></p>
+            </div>
+            <div class="feedback feedback-neutral" id="story-feedback" role="status"><span class="feedback-icon">i</span><span>Completa las tres piezas para validar la historia.</span></div>
+          </section>
+
+          <section class="simulator-panel bdd-panel reveal" aria-labelledby="bdd-builder-title">
+            <div class="panel-header">
+              <div class="panel-title-group"><span class="panel-number">B</span><div><p class="overline">Constructor 02</p><h3 id="bdd-builder-title">Escenario BDD</h3></div></div>
+              <span class="syntax-tag syntax-green">Gherkin</span>
+            </div>
+            <div class="bdd-instruction"><span class="terminal-prompt">&gt;_</span><p>Arrastra un bloque o haz clic para añadirlo al escenario. El orden debe ser <strong>Given → When → Then</strong>.</p></div>
+
+            <div class="bdd-layout">
+              <div class="block-library" aria-label="Bloques Gherkin disponibles">
+                <p class="library-label">Bloques disponibles</p>
+                <button class="logic-block given-block" type="button" draggable="true" data-bdd-block data-block-id="given-auth" data-block-kind="given" data-block-text="Dado que el cliente tiene una sesión activa"><span class="block-keyword">Dado que</span><span>el cliente tiene una sesión activa</span><span class="drag-handle">⠿</span></button>
+                <button class="logic-block given-block" type="button" draggable="true" data-bdd-block data-block-id="given-stock" data-block-kind="given" data-block-text="Dado que hay stock disponible"><span class="block-keyword">Dado que</span><span>hay stock disponible</span><span class="drag-handle">⠿</span></button>
+                <button class="logic-block given-block" type="button" draggable="true" data-bdd-block data-block-id="given-admin" data-block-kind="given" data-block-text="Dado que el administrador ha iniciado sesión"><span class="block-keyword">Dado que</span><span>el administrador ha iniciado sesión</span><span class="drag-handle">⠿</span></button>
+                <button class="logic-block when-block" type="button" draggable="true" data-bdd-block data-block-id="when-buy" data-block-kind="when" data-block-text="Cuando confirma la compra"><span class="block-keyword">Cuando</span><span>confirma la compra</span><span class="drag-handle">⠿</span></button>
+                <button class="logic-block when-block" type="button" draggable="true" data-bdd-block data-block-id="when-login" data-block-kind="when" data-block-text="Cuando envía sus credenciales"><span class="block-keyword">Cuando</span><span>envía sus credenciales</span><span class="drag-handle">⠿</span></button>
+                <button class="logic-block when-block" type="button" draggable="true" data-bdd-block data-block-id="when-progress" data-block-kind="when" data-block-text="Cuando abre su panel de progreso"><span class="block-keyword">Cuando</span><span>abre su panel de progreso</span><span class="drag-handle">⠿</span></button>
+                <button class="logic-block then-block" type="button" draggable="true" data-bdd-block data-block-id="then-stock" data-block-kind="then" data-block-text="Entonces se crea el pedido y disminuye el stock"><span class="block-keyword">Entonces</span><span>se crea el pedido y disminuye el stock</span><span class="drag-handle">⠿</span></button>
+                <button class="logic-block then-block" type="button" draggable="true" data-bdd-block data-block-id="then-access" data-block-kind="then" data-block-text="Entonces el usuario accede al sistema"><span class="block-keyword">Entonces</span><span>el usuario accede al sistema</span><span class="drag-handle">⠿</span></button>
+                <button class="logic-block then-block" type="button" draggable="true" data-bdd-block data-block-id="then-progress" data-block-kind="then" data-block-text="Entonces se muestra el progreso actualizado"><span class="block-keyword">Entonces</span><span>se muestra el progreso actualizado</span><span class="drag-handle">⠿</span></button>
+              </div>
+
+              <div class="scenario-builder">
+                <div class="scenario-toolbar"><span class="library-label">Tu escenario</span><button class="ghost-button" id="clear-bdd" type="button">Limpiar</button></div>
+                <div class="drop-zone" id="bdd-dropzone" tabindex="0" aria-label="Zona para construir escenario BDD" aria-describedby="bdd-feedback">
+                  <div class="drop-placeholder" id="drop-placeholder"><span class="plus-circle">+</span><span>Haz clic en un bloque<br>o suéltalo aquí</span></div>
+                </div>
+                <button class="button button-secondary validate-button" id="validate-bdd" type="button"><span>Validar escenario</span><span aria-hidden="true">→</span></button>
+                <div class="feedback feedback-neutral" id="bdd-feedback" role="status"><span class="feedback-icon">i</span><span>Aún no hay bloques en tu escenario.</span></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="hint-strip reveal"><span class="hint-icon">✦</span><p><strong>Pista de ingeniería:</strong> un criterio de aceptación no describe cómo programar; describe qué debe observarse cuando el sistema funciona.</p></div>
+
+        <div class="bdd-explainer reveal">
+          <div class="bdd-explainer-copy"><p class="eyebrow">Gherkin en una mirada</p><h3>BDD convierte conversaciones en ejemplos ejecutables.</h3><p>El escenario debe poder ser leído por una persona no técnica y, al mismo tiempo, servir como contrato para automatizar pruebas.</p><div class="bdd-rule"><span>Regla de oro</span><strong>Describe comportamiento, no implementación.</strong></div></div>
+          <figure class="bdd-figure"><img src="assets/bdd-flow.svg" alt="Diagrama del flujo BDD: Given como contexto, When como evento y Then como resultado observable" loading="lazy" width="800" height="320"></figure>
+        </div>
+
+        <section class="analyzer-panel reveal" aria-labelledby="analyzer-title">
+          <div class="panel-header analyzer-header"><div class="panel-title-group"><span class="panel-number">C</span><div><p class="overline">Simulador 03</p><h3 id="analyzer-title">Detector de ambigüedad</h3></div></div><span class="syntax-tag syntax-yellow">ANALYZER</span></div>
+          <p class="panel-description">Escribe un requerimiento del cliente y observa qué información está presente y qué deberías preguntar antes de construir.</p>
+          <div class="analyzer-input-row"><label class="sr-only" for="raw-requirement">Requerimiento para analizar</label><textarea id="raw-requirement" rows="3" placeholder="Ejemplo: El sistema debe gestionar las compras automáticamente."></textarea><button class="button button-secondary" id="analyze-requirement" type="button">Analizar texto <span aria-hidden="true">↗</span></button></div>
+          <div class="sample-prompts" aria-label="Ejemplos rápidos"><span>Prueba con:</span><button type="button" data-sample-requirement="El sistema debe gestionar las compras automáticamente.">Frase ambigua</button><button type="button" data-sample-requirement="Como cliente, quiero comprar un producto para confirmar mi pedido.">Historia clara</button></div>
+          <div class="analysis-output" id="analysis-output" aria-live="polite" aria-atomic="true">
+            <div class="analysis-empty"><span class="scan-icon">⌁</span><p>El análisis aparecerá aquí.</p></div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section-pad architecture-section" id="arquitectura" aria-labelledby="architecture-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">04 · Vista de sistema</p>
+            <h2 id="architecture-title">Una aplicación es un flujo. <span class="text-gradient">No solo una pantalla.</span></h2>
+          </div>
+          <p class="section-intro">La arquitectura general muestra quién consume el sistema, dónde vive cada responsabilidad y cómo circulan los datos.</p>
+        </div>
+
+        <div class="architecture-board reveal">
+          <div class="arch-layer arch-users"><span class="layer-label">01 · Entrada</span><strong>Usuario / navegador / móvil</strong><small>Interfaz, sesión y acciones del usuario</small></div>
+          <div class="arch-arrow" aria-hidden="true">↓</div>
+          <div class="arch-layer arch-edge"><span class="layer-label">02 · Borde de red</span><strong>DNS · HTTPS · proxy inverso</strong><small>Recibe solicitudes, cifra el tránsito y dirige el tráfico</small></div>
+          <div class="arch-arrow" aria-hidden="true">↓</div>
+          <div class="arch-layer arch-app"><span class="layer-label">03 · Aplicación</span><div class="arch-service-row"><div><strong>Frontend</strong><small>presenta la experiencia</small></div><div><strong>API / backend</strong><small>aplica reglas de negocio</small></div><div><strong>Worker</strong><small>tareas asíncronas</small></div></div></div>
+          <div class="arch-arrow" aria-hidden="true">↓</div>
+          <div class="arch-layer arch-data"><span class="layer-label">04 · Estado</span><div class="arch-service-row"><div><strong>Base de datos</strong><small>información estructurada</small></div><div><strong>Cache / cola</strong><small>velocidad y trabajos</small></div><div><strong>Archivos</strong><small>imágenes y documentos</small></div></div></div>
+          <div class="arch-side-note arch-integrations"><span>↗</span><strong>Integraciones</strong><small>correo, pagos, mapas o proveedor de IA mediante API</small></div>
+          <div class="arch-side-note arch-ops"><span>◌</span><strong>Operación</strong><small>logs, métricas, alertas, backups y recuperación</small></div>
+          <div class="arch-foundation"><span class="layer-label">05 · Plataforma</span><strong>VPS / nube · Docker · Coolify</strong><small>La infraestructura aloja; Docker empaqueta; Coolify despliega y opera la aplicación.</small></div>
+        </div>
+
+        <section class="platform-decisions reveal" aria-labelledby="platform-title">
+          <div class="platform-heading">
+            <div>
+              <p class="eyebrow">De la arquitectura al despliegue</p>
+              <h3 id="platform-title">Cada herramienta responde una decisión técnica.</h3>
+            </div>
+            <p>Primero se define el requisito de calidad; después se elige la plataforma que puede demostrarlo con evidencia.</p>
+          </div>
+
+          <div class="platform-grid">
+            <article class="platform-card">
+              <div class="platform-card-top"><span class="platform-index">01</span><span class="platform-icon" aria-hidden="true">☁</span></div>
+              <p class="overline">Dónde se ejecuta</p>
+              <h4>Nube y VPS</h4>
+              <p>La nube ofrece cómputo, red y almacenamiento bajo demanda. Un VPS es un servidor virtual concreto dentro de esa infraestructura, con CPU, memoria, disco y sistema operativo administrables.</p>
+              <div class="platform-decision"><span>Decisión vinculada</span><strong>Capacidad, disponibilidad, costo, firewall y copias de seguridad.</strong></div>
+            </article>
+
+            <article class="platform-card">
+              <div class="platform-card-top"><span class="platform-index">02</span><span class="platform-icon" aria-hidden="true">◈</span></div>
+              <p class="overline">Cómo se empaqueta</p>
+              <h4>Docker</h4>
+              <p>Convierte la aplicación y sus dependencias en una imagen reproducible. Cada contenedor ejecuta esa imagen con la misma configuración acordada por el equipo.</p>
+              <div class="platform-decision"><span>Decisión vinculada</span><strong>Versiones, puertos, variables, persistencia y límites de recursos.</strong></div>
+            </article>
+
+            <article class="platform-card">
+              <div class="platform-card-top"><span class="platform-index">03</span><span class="platform-icon" aria-hidden="true">⌘</span></div>
+              <p class="overline">Cómo se despliega y opera</p>
+              <h4>Coolify</h4>
+              <p>Se instala sobre el servidor, conecta el repositorio y coordina servicios Docker, variables, dominios y HTTPS. Simplifica la operación, pero no sustituye monitoreo, actualizaciones ni recuperación.</p>
+              <div class="platform-decision"><span>Decisión vinculada</span><strong>Automatización del despliegue, secretos, certificados, logs y rollback.</strong></div>
+            </article>
+          </div>
+
+          <div class="deployment-route">
+            <div class="route-heading"><span>Flujo de entrega</span><p>Del cambio versionado a una aplicación disponible</p></div>
+            <div class="deployment-flow" aria-label="Flujo general de despliegue con Coolify y Docker">
+              <div class="flow-step"><span>01</span><strong>Git</strong><small>Código, Dockerfile y configuración versionada</small></div><b aria-hidden="true">→</b>
+              <div class="flow-step"><span>02</span><strong>Coolify</strong><small>Detecta el cambio y prepara el despliegue</small></div><b aria-hidden="true">→</b>
+              <div class="flow-step"><span>03</span><strong>Docker</strong><small>Construye la imagen y ejecuta el contenedor</small></div><b aria-hidden="true">→</b>
+              <div class="flow-step"><span>04</span><strong>VPS + dominio</strong><small>Publica con HTTPS, persistencia y observabilidad</small></div>
+            </div>
+          </div>
+        </section>
+
+        <div class="architecture-explain-grid">
+          <article class="architecture-card reveal"><span class="card-index">01</span><h3>Flujo de una petición</h3><ol><li>El navegador resuelve el dominio y abre una conexión HTTPS.</li><li>El proxy envía la solicitud al frontend o a la API.</li><li>La API valida identidad y reglas; consulta datos o llama a un servicio externo.</li><li>La respuesta vuelve al cliente y la operación queda registrada en logs.</li></ol></article>
+          <article class="architecture-card reveal"><span class="card-index">02</span><h3>Qué debe decidir el equipo</h3><ul class="decision-list"><li><b>Responsabilidades:</b> qué pertenece a frontend, backend y base de datos.</li><li><b>Datos:</b> qué es persistente, qué puede perderse y qué debe respaldarse.</li><li><b>Escala:</b> cuántos usuarios, solicitudes y archivos se esperan.</li><li><b>Riesgo:</b> qué pasa si falla la base de datos, el proveedor de IA o el VPS.</li></ul></article>
+          <article class="architecture-card architecture-prompt reveal"><span class="card-index">03</span><h3>La IA como copiloto arquitectónico</h3><p>Aquí la IA se integra al proceso para explorar alternativas, convertir restricciones en preguntas y proponer pruebas. Un prompt útil entrega contexto y pide evidencia:</p><pre><code>Contexto: app web con frontend, API y PostgreSQL.
+Restricción: desplegar con Docker en un VPS usando Coolify.
+Tarea: propone arquitectura, riesgos, RNF y pruebas.
+No inventes secretos; justifica cada decisión.</code></pre><p class="prompt-warning">Revisa la propuesta con requisitos, pruebas de carga, seguridad y presupuesto antes de aplicarla.</p></article>
+        </div>
+
+        <div class="architecture-takeaway reveal"><span class="takeaway-icon">✓</span><p><strong>Idea central:</strong> los requisitos dicen qué debe lograrse; la arquitectura organiza responsabilidades; la infraestructura aporta el entorno donde el sistema puede ejecutarse, observarse y recuperarse.</p></div>
+      </div>
+    </section>
+
+    <section class="section-pad challenge-section" id="desafio" aria-labelledby="challenge-title">
+      <div class="container">
+        <div class="challenge-heading reveal"><div><p class="eyebrow">05 · Panel de validación</p><h2 id="challenge-title">Ahora toma una decisión de diseño.</h2></div><div class="challenge-badge"><span>Reto final</span><strong>01 / 01</strong></div></div>
+        <div class="challenge-card reveal">
+          <div class="challenge-context">
+            <div class="challenge-icon" aria-hidden="true">?</div>
+            <p class="overline">Mensaje del cliente · contexto insuficiente</p>
+            <h3>“Necesito que el sistema gestione las compras y actualice todo automáticamente.”</h3>
+            <p>El mensaje expresa una intención, pero no define actor, acción concreta, valor ni comportamiento verificable.</p>
+            <div class="ambiguity-tags"><span>✕ ¿Quién?</span><span>✕ ¿Qué significa gestionar?</span><span>✕ ¿Qué resultado espero?</span></div>
+          </div>
+          <div class="challenge-task">
+            <div class="task-header"><span class="task-number">01</span><div><p class="overline">Tu misión</p><h3>Reescribe el requerimiento</h3></div></div>
+            <p>Usa el Constructor A y el Constructor B para expresar una historia específica y un escenario que se pueda comprobar.</p>
+            <div class="success-criteria"><span>Condición de aprobación</span><span>Historia completa + Given / When / Then lógico</span></div>
+            <button class="button button-primary challenge-button" id="evaluate-challenge" type="button">Evaluar mi requerimiento <span aria-hidden="true">↗</span></button>
+            <div class="challenge-feedback" id="challenge-feedback" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="approval-panel" id="approval-panel" aria-live="polite" aria-hidden="true">
+          <div class="approval-orbit"><span>✓</span></div>
+          <div><p class="eyebrow">Guía aprobada</p><h3>Contexto convertido en comportamiento.</h3><p>Tu requerimiento ya puede ser entendido, desarrollado y verificado por el equipo.</p></div>
+          <div class="approval-score"><strong>100%</strong><span>claridad</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner"><div class="footer-brand"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span><span>ADSO · Ingeniería de Contexto</span></div><p>Aprender a especificar es aprender a construir.</p><span class="footer-year" id="footer-year"></span></div>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/simulator.js" defer></script>
+</body>
+</html>

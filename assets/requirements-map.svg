@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" role="img" aria-labelledby="title desc">
+  <title id="title">Mapa de transformación de requisitos</title>
+  <desc id="desc">Una idea del cliente se convierte en contexto, historia de usuario y criterio verificable.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#121b35"/>
+      <stop offset="1" stop-color="#0b1020"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1">
+      <stop offset="0" stop-color="#6b8cff"/>
+      <stop offset="1" stop-color="#5be6da"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="430" rx="28" fill="url(#background)"/>
+  <g opacity=".14" stroke="#8ca5ff"><path d="M0 88h800M0 176h800M0 264h800M0 352h800"/><path d="M100 0v430M200 0v430M300 0v430M400 0v430M500 0v430M600 0v430M700 0v430"/></g>
+  <text x="42" y="46" fill="#5be6da" font-family="monospace" font-size="12" letter-spacing="2">REQUIREMENT PIPELINE / 01—04</text>
+  <g font-family="system-ui, sans-serif">
+    <g transform="translate(38 94)"><rect width="153" height="180" rx="18" fill="#17223f" stroke="#6b8cff"/><circle cx="31" cy="34" r="18" fill="#263b76"/><text x="31" y="40" text-anchor="middle" fill="#8ca5ff" font-size="17">?</text><text x="20" y="83" fill="#f2f5ff" font-size="18" font-weight="700">Idea</text><text x="20" y="111" fill="#9ba8c5" font-size="13">“Gestionar</text><text x="20" y="131" fill="#9ba8c5" font-size="13">compras…”</text><text x="20" y="163" fill="#687694" font-family="monospace" font-size="10">ambigua</text></g>
+    <path d="M201 184h54" fill="none" stroke="url(#accent)" stroke-width="2"/><path d="m247 176 11 8-11 8" fill="none" stroke="#5be6da" stroke-width="2"/>
+    <g transform="translate(267 94)"><rect width="153" height="180" rx="18" fill="#17223f" stroke="#c09cff"/><circle cx="31" cy="34" r="18" fill="#332958"/><path d="M23 33h17M31 25v17" stroke="#c09cff" stroke-width="2"/><text x="20" y="83" fill="#f2f5ff" font-size="18" font-weight="700">Contexto</text><text x="20" y="111" fill="#9ba8c5" font-size="13">¿Quién?</text><text x="20" y="131" fill="#9ba8c5" font-size="13">¿Qué? ¿Para qué?</text><text x="20" y="163" fill="#687694" font-family="monospace" font-size="10">preguntas</text></g>
+    <path d="M430 184h54" fill="none" stroke="url(#accent)" stroke-width="2"/><path d="m476 176 11 8-11 8" fill="none" stroke="#5be6da" stroke-width="2"/>
+    <g transform="translate(496 94)"><rect width="153" height="180" rx="18" fill="#17223f" stroke="#5be6da"/><circle cx="31" cy="34" r="18" fill="#17454b"/><path d="M21 29h20M21 37h14" stroke="#5be6da" stroke-width="2"/><text x="20" y="83" fill="#f2f5ff" font-size="18" font-weight="700">Historia</text><text x="20" y="111" fill="#9ba8c5" font-size="13">Como cliente,</text><text x="20" y="131" fill="#9ba8c5" font-size="13">quiero comprar…</text><text x="20" y="163" fill="#687694" font-family="monospace" font-size="10">intención</text></g>
+    <path d="M658 184h54" fill="none" stroke="url(#accent)" stroke-width="2"/><path d="m704 176 11 8-11 8" fill="none" stroke="#5be6da" stroke-width="2"/>
+    <g transform="translate(725 112)"><circle cx="30" cy="72" r="52" fill="#173e3a" stroke="#76e2ae" stroke-width="2" filter="url(#glow)"/><path d="m5 72 17 17 34-38" fill="none" stroke="#76e2ae" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><text x="30" y="152" text-anchor="middle" fill="#76e2ae" font-family="monospace" font-size="10">verificable</text></g>
+  </g>
+  <text x="400" y="363" text-anchor="middle" fill="#9ba8c5" font-family="monospace" font-size="11">El contexto reduce el espacio para interpretar.</text>
+</svg>
