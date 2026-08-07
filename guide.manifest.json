@@ -1,0 +1,113 @@
+{
+  "standard": {
+    "id": "devbrain.educational-guide",
+    "version": "2.0.0"
+  },
+  "guide": {
+    "id": "adso-requisitos-guia-02-web-2026",
+    "title": "Guía 02 web - Requisitos funcionales, no funcionales y arquitectura de contexto",
+    "format": "html",
+    "language": "es-CO",
+    "version": "2.2",
+    "sourceDocument": "index.html"
+  },
+  "curricularAlignment": {
+    "program": {
+      "name": "Análisis y Desarrollo de Software",
+      "code": "228118",
+      "version": "1"
+    },
+    "competency": {
+      "code": "NO_INFORMADO_EN_LA_FUENTE",
+      "name": "Especificación de requisitos del software",
+      "sourceStatus": "El documento base no informa el código de la competencia; no se inventa."
+    },
+    "learningResults": [
+      "Establecer los requisitos del software de acuerdo con la información recolectada.",
+      "Validar el informe de requisitos de acuerdo con las necesidades del cliente (articulación).",
+      "Modelar las funciones del software de acuerdo con el informe de requisitos (articulación)."
+    ],
+    "projectPhase": "Análisis",
+    "projectActivity": "Especificar y validar los requisitos del sistema de información."
+  },
+  "project": {
+    "challenge": "Transformar hallazgos ambiguos en requisitos claros, medibles, priorizados, trazables y verificables.",
+    "finalProduct": "Especificación breve con catálogo RF/RNF, historias de usuario, criterios BDD, priorización MoSCoW, trazabilidad, lienzo de construcción, modelo de datos candidato, mapa de componentes y backlog de cortes verticales.",
+    "checkpoints": [
+      {
+        "id": "G2-C1",
+        "evidence": "Taller de clasificación y corrección de enunciados.",
+        "criterion": "Diferencia capacidad, calidad, regla de negocio y restricción con justificación."
+      },
+      {
+        "id": "G2-C2",
+        "evidence": "Catálogo RF/RNF, historias y escenarios BDD priorizados.",
+        "criterion": "Cada requisito tiene fuente, condición, resultado observable, medida o criterio de aceptación."
+      },
+      {
+        "id": "G2-C3",
+        "evidence": "Especificación validada, trazabilidad, lienzo de construcción y backlog inicial.",
+        "criterion": "La necesidad puede seguirse hasta el requisito, la historia, el criterio, la prueba, los datos y componentes candidatos y la tarea."
+      }
+    ]
+  },
+  "learningSequence": [
+    {
+      "phase": "reflection",
+      "activity": "Comparar interpretaciones incompatibles de un mensaje ambiguo del cliente.",
+      "hours": 2,
+      "increment": "Banco de preguntas de aclaración."
+    },
+    {
+      "phase": "contextualization",
+      "activity": "Clasificar, medir y corregir requisitos con ejemplos y contraejemplos.",
+      "hours": 8,
+      "increment": "Catálogo inicial RF/RNF y glosario de calidad."
+    },
+    {
+      "phase": "appropriation",
+      "activity": "Construir historias, criterios BDD, priorización y trazabilidad del caso base.",
+      "hours": 14,
+      "increment": "Especificación versión 0.9 revisada por pares."
+    },
+    {
+      "phase": "transfer",
+      "activity": "Aplicar el taller web al proyecto propio, derivar un corte vertical y validar datos, responsabilidades y pruebas con un interesado.",
+      "hours": 8,
+      "increment": "Especificación versión 1.0, lienzo de construcción y backlog inicial."
+    }
+  ],
+  "evidence": {
+    "knowledge": ["Clasificación argumentada de RF, RNF, reglas y restricciones."],
+    "performance": ["Redacción, revisión por pares, priorización MoSCoW y validación con BDD."],
+    "product": ["Especificación validada con RF/RNF, historias, criterios, trazabilidad, modelo de datos candidato, mapa de componentes y backlog."]
+  },
+  "assessment": {
+    "criteria": [
+      "Formula RF singulares, claros, necesarios, factibles y verificables.",
+      "Formula RNF con atributo, medida, umbral, condición y método de verificación.",
+      "Mantiene trazabilidad y registra decisiones de validación.",
+      "Deriva datos, interfaz, lógica, seguridad y pruebas sin confundir candidatos de diseño con decisiones aprobadas."
+    ],
+    "instruments": ["Lista de chequeo de calidad", "Rúbrica analítica de especificación", "Guía de validación con interesados"]
+  },
+  "duration": {
+    "totalHours": 32
+  },
+  "sources": [
+    "Servicio Nacional de Aprendizaje - SENA. Programa ADSO 228118, versión 1.",
+    "Servicio Nacional de Aprendizaje - SENA. Formato GFPI-F-135 V04.",
+    "SENA. Metodología para aplicar el aprendizaje por proyectos, 2023. https://repositorio.sena.edu.co/handle/11404/8544",
+    "ISO/IEC/IEEE 29148:2018. Requirements engineering. https://www.iso.org/standard/72089.html",
+    "ISO/IEC 25010:2023. Product quality model. https://www.iso.org/standard/78176.html",
+    "Cucumber. Gherkin Reference. https://cucumber.io/docs/gherkin/reference/"
+  ],
+  "assumptions": [
+    "Los requisitos y métricas son ejemplos didácticos y deben validarse antes de incorporarlos a un proyecto real.",
+    "La clasificación RF/RNF no reemplaza la revisión con interesados ni las restricciones normativas aplicables."
+  ],
+  "changeControl": {
+    "date": "2026-08-07",
+    "summary": "Incorporación del puente desde historias y requisitos hacia modelo de datos candidato, responsabilidades del software, pruebas y cortes verticales."
+  }
+}

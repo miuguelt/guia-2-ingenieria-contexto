@@ -6,7 +6,7 @@
   <meta name="description" content="Guía web interactiva de ADSO sobre requisitos funcionales y no funcionales, arquitectura, infraestructura, Docker, VPS, Coolify e IA.">
   <meta name="theme-color" content="#0b1020">
   <title>Guía 2 · Ingeniería de Contexto | ADSO</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=3">
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
@@ -25,7 +25,8 @@
         <a href="#contexto" data-scroll>Contexto</a>
         <a href="#fundamentos" data-scroll>Fundamentos</a>
         <a href="#requisitos" data-scroll>Requisitos</a>
-        <a href="#laboratorio" data-scroll>Laboratorio</a>
+        <a href="#instrumentos" data-scroll>Instrumentos</a>
+        <a href="#construccion" data-scroll>Construcción</a>
         <a href="#arquitectura" data-scroll>Arquitectura</a>
         <a href="#desafio" data-scroll>Desafío</a>
       </nav>
@@ -50,7 +51,7 @@
           <p class="hero-lede">Guía 2 · Ingeniería de Contexto, Historias de Usuario y sintaxis BDD (Gherkin).</p>
           <p class="hero-description">En la era de la IA, un requerimiento claro no es burocracia: es el contexto que permite que personas, equipos y máquinas construyan la misma solución.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#laboratorio" data-scroll>Ir al laboratorio <span aria-hidden="true">↗</span></a>
+            <a class="button button-primary" href="#contexto" data-scroll>Comenzar la ruta completa <span aria-hidden="true">→</span></a>
             <a class="text-link" href="#fundamentos" data-scroll>Explorar conceptos <span aria-hidden="true">↓</span></a>
           </div>
         </div>
@@ -108,6 +109,15 @@
           <div><span class="quality-icon">I</span><strong>Completo</strong><small>Actor, acción y valor</small></div>
           <div><span class="quality-icon">V</span><strong>Verificable</strong><small>Se puede probar</small></div>
           <div><span class="quality-icon">T</span><strong>Trazable</strong><small>Conecta con el objetivo</small></div>
+        </div>
+
+        <!-- Conexión Didáctica: De la Recolección (Guía 1) a la Especificación (Guía 2) -->
+        <div class="elicit-bridge-banner reveal" style="margin-top: 24px; background: rgba(30, 41, 59, 0.8); border-left: 4px solid #38bdf8; border-radius: 0 8px 8px 0; padding: 16px 20px;">
+          <h4 style="color: #38bdf8; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">🔗 De la Recolección de Información a la Especificación Formal</h4>
+          <p style="color: #cbd5e1; font-size: 0.825rem; margin: 0;">
+            Recordemos que la información no nace de la especificación: se extrae aplicando las 5 técnicas de recolección vistas en la <strong>Guía 1</strong> (Entrevistas, Encuestas, Observación, Análisis Documental y JAD).
+            En esta Guía 2 tomamos esos hallazgos y los transformamos en <strong>Requisitos Funcionales (RF)</strong> y <strong>No Funcionales (RNF)</strong> claros y verificables. Solo después de validarlos y completar el lienzo de construcción pasan a orientar datos, interfaz, lógica y pruebas.
+          </p>
         </div>
       </div>
     </section>
@@ -228,6 +238,73 @@
           </article>
         </div>
 
+        <!-- Priorización y Matriz de Trazabilidad de Requisitos -->
+        <div class="requirements-framework" style="margin-top: 36px; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(147, 51, 234, 0.3); border-radius: 12px; padding: 24px;">
+          <div class="section-heading compact-heading" style="margin-bottom: 20px;">
+            <div>
+              <p class="eyebrow" style="color: #c084fc;"><span class="eyebrow-dot"></span> Método de Análisis de Requisitos</p>
+              <h3 style="font-size: 1.25rem; font-weight: 700; color: #f8fafc;">Priorización MoSCoW y Matriz de Trazabilidad</h3>
+            </div>
+            <p style="color: #cbd5e1; font-size: 0.875rem;">Para saber qué programar primero y no perder la conexión con el negocio, clasificamos los Requerimientos Funcionales (RF).</p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 24px;">
+            <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; padding: 14px;">
+              <span style="background: #ef4444; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px;">MUST HAVE (Imprescindible)</span>
+              <h4 style="color: #f8fafc; font-size: 0.95rem; margin-top: 8px; margin-bottom: 4px;">Sin esto no hay software</h4>
+              <p style="color: #cbd5e1; font-size: 0.8rem; margin: 0;">Requisitos funcionales críticos del Core del sistema. Ejemplo: Autenticación y registro de ingreso.</p>
+            </div>
+            <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; padding: 14px;">
+              <span style="background: #f59e0b; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px;">SHOULD HAVE (Debería tener)</span>
+              <h4 style="color: #f8fafc; font-size: 0.95rem; margin-top: 8px; margin-bottom: 4px;">Alto valor esperado</h4>
+              <p style="color: #cbd5e1; font-size: 0.8rem; margin: 0;">Funcionalidades importantes pero con alternativas temporales. Ejemplo: Exportación a Excel/PDF.</p>
+            </div>
+            <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 8px; padding: 14px;">
+              <span style="background: #3b82f6; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px;">COULD HAVE (Podría tener)</span>
+              <h4 style="color: #f8fafc; font-size: 0.95rem; margin-top: 8px; margin-bottom: 4px;">Deseable si hay tiempo</h4>
+              <p style="color: #cbd5e1; font-size: 0.8rem; margin: 0;">Mejoras de experiencia o reportes avanzados. Ejemplo: Modo oscuro o notificaciones push.</p>
+            </div>
+            <div style="background: rgba(107, 114, 128, 0.1); border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 8px; padding: 14px;">
+              <span style="background: #6b7280; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px;">WON'T HAVE (No ahora)</span>
+              <h4 style="color: #f8fafc; font-size: 0.95rem; margin-top: 8px; margin-bottom: 4px;">Fuera de alcance inicial</h4>
+              <p style="color: #cbd5e1; font-size: 0.8rem; margin: 0;">Requisitos pospuestos explícitamente para versiones futuras. Ejemplo: Reconocimiento facial por IA.</p>
+            </div>
+          </div>
+
+          <div style="background: rgba(30, 41, 59, 0.6); border-radius: 8px; padding: 16px;">
+            <h4 style="color: #38bdf8; font-size: 0.9rem; font-weight: 700; margin-bottom: 8px;">Ejemplo de Matriz de Trazabilidad (Objetivo de Negocio → RF → Test BDD)</h4>
+            <div style="overflow-x: auto;">
+              <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem; color: #e2e8f0; text-align: left;">
+                <thead>
+                  <tr style="border-bottom: 1px solid #475569;">
+                    <th style="padding: 6px; color: #94a3b8;">ID RF</th>
+                    <th style="padding: 6px; color: #94a3b8;">Necesidad del Negocio</th>
+                    <th style="padding: 6px; color: #94a3b8;">Requerimiento Funcional Estandarizado</th>
+                    <th style="padding: 6px; color: #94a3b8;">MoSCoW</th>
+                    <th style="padding: 6px; color: #94a3b8;">Criterio Verificable (BDD)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid #334155;">
+                    <td style="padding: 6px; font-weight: 700; color: #a855f7;">RF-01</td>
+                    <td style="padding: 6px;">Seguridad de activos e ingresos</td>
+                    <td style="padding: 6px;">El sistema debe validar las credenciales del usuario y registrar su rol antes de conceder acceso a la plataforma.</td>
+                    <td style="padding: 6px;"><span style="background:#ef4444;color:#fff;padding:1px 6px;border-radius:3px;">Must</span></td>
+                    <td style="padding: 6px; font-family: monospace; color: #86efac;">Dado un usuario registrado, cuando ingresa credenciales válidas, entonces accede al panel de su rol.</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 6px; font-weight: 700; color: #a855f7;">RF-02</td>
+                    <td style="padding: 6px;">Reducción de tiempos en garita</td>
+                    <td style="padding: 6px;">El sistema debe localizar el registro vigente por número de cédula y mostrar los datos autorizados para el proceso de ingreso.</td>
+                    <td style="padding: 6px;"><span style="background:#ef4444;color:#fff;padding:1px 6px;border-radius:3px;">Must</span></td>
+                    <td style="padding: 6px; font-family: monospace; color: #86efac;">Dado un registro vigente, cuando el guarda busca la cédula, entonces observa los datos autorizados del visitante.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
         <div class="exercise-zone reveal">
           <div class="exercise-heading"><div><p class="eyebrow">Ejercicios guiados</p><h3>Practica antes de pasar al laboratorio</h3></div><span class="exercise-count">03 retos</span></div>
           <div class="exercise-grid">
@@ -248,6 +325,272 @@
             </details>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section-pad requirements-workshop" id="instrumentos" aria-labelledby="requirements-workshop-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">03 · Instrumentos de especificación</p>
+            <h2 id="requirements-workshop-title">De una evidencia a una tarea que puede construirse.</h2>
+          </div>
+          <p class="section-intro">Estudia la cadena resuelta, copia las plantillas y genera un primer paquete para tu proyecto. El resultado es un borrador que debe revisarse con interesados, instructor y equipo técnico.</p>
+        </div>
+
+        <ol class="spec-route reveal" aria-label="Cadena de trazabilidad desde la evidencia hasta el backlog">
+          <li><span>01</span><strong>Evidencia</strong><small>Hecho validado</small></li>
+          <li><span>02</span><strong>RF</strong><small>Capacidad</small></li>
+          <li><span>03</span><strong>RNF</strong><small>Calidad medible</small></li>
+          <li><span>04</span><strong>Historia</strong><small>Valor del actor</small></li>
+          <li><span>05</span><strong>BDD</strong><small>Ejemplo verificable</small></li>
+          <li><span>06</span><strong>Prueba</strong><small>Evidencia técnica</small></li>
+          <li><span>07</span><strong>Backlog</strong><small>Trabajo priorizado</small></li>
+          <li><span>08</span><strong>Componentes</strong><small>Datos y responsabilidades</small></li>
+        </ol>
+
+        <section class="sena-cycle reveal" aria-labelledby="g2-sena-cycle-title">
+          <div class="sena-cycle-heading"><p class="eyebrow">Secuencia didáctica SENA</p><h3 id="g2-sena-cycle-title">Comprender, practicar, demostrar y transferir</h3></div>
+          <ol>
+            <li><span>Reflexión</span><strong>Compara interpretaciones de un requisito ambiguo.</strong><small>Evidencia: preguntas de aclaración.</small></li>
+            <li><span>Contextualización</span><strong>Estudia la cadena resuelta y sus instrumentos.</strong><small>Evidencia: clasificación RF/RNF argumentada.</small></li>
+            <li><span>Apropiación</span><strong>Construye y revisa un paquete en equipo.</strong><small>Evidencia: historia, BDD, prioridad y trazabilidad.</small></li>
+            <li><span>Transferencia</span><strong>Aplica el método a tu proyecto formativo.</strong><small>Producto: especificación, lienzo de construcción y backlog inicial.</small></li>
+          </ol>
+        </section>
+
+        <article class="trace-case reveal" aria-labelledby="trace-case-title">
+          <header class="trace-case-heading">
+            <div><p class="overline">Ejemplo completamente resuelto</p><h3 id="trace-case-title">Cadena del caso “Control de ingreso de equipos”</h3></div>
+            <span class="trace-state">Trazabilidad 8/8</span>
+          </header>
+          <div class="trace-table-wrap" role="region" aria-label="Cadena de trazabilidad resuelta" tabindex="0">
+            <table class="trace-table">
+              <thead><tr><th>Artefacto</th><th>ID</th><th>Ejemplo diligenciado</th><th>Pregunta de revisión</th></tr></thead>
+              <tbody>
+                <tr><td>Evidencia</td><td>E-OBS-03</td><td>En tres observaciones, el registro manual tomó entre 230 y 270 segundos por persona.</td><td>¿La muestra cubre franjas y actores representativos?</td></tr>
+                <tr><td>RF</td><td>RF-03</td><td>El sistema debe permitir al guarda leer el código QR del visitante y recuperar su registro vigente.</td><td>¿Expresa una sola capacidad observable?</td></tr>
+                <tr><td>RNF</td><td>RNF-03</td><td>Con 150 solicitudes concurrentes, el 95 % de las lecturas debe mostrar respuesta en menos de 3 segundos.</td><td>¿Tiene contexto, medida, umbral y método de prueba?</td></tr>
+                <tr><td>Historia</td><td>HU-03</td><td>Como guarda, quiero consultar el registro mediante QR para reducir la espera en el acceso.</td><td>¿Explica quién obtiene valor y para qué?</td></tr>
+                <tr><td>BDD</td><td>CA-03</td><td>Dado un visitante con registro vigente, cuando el guarda lee su QR, entonces observa los datos autorizados y puede continuar el ingreso.</td><td>¿Describe comportamiento sin imponer implementación?</td></tr>
+                <tr><td>Prueba</td><td>PR-03</td><td>Prueba funcional de lectura y prueba de carga con 150 usuarios virtuales; registrar percentil 95.</td><td>¿La evidencia demuestra RF y RNF por separado?</td></tr>
+                <tr><td>Backlog</td><td>BL-03</td><td>Implementar consulta de registro por QR con criterios CA-03 y prueba PR-03; prioridad Must.</td><td>¿Está lista para estimar y conserva sus vínculos?</td></tr>
+                <tr><td>Componentes</td><td>CMP-03</td><td>Derivar datos persistentes, caso de uso, interfaz y estados, permisos y pruebas para un incremento vertical.</td><td>¿Cada decisión se justifica con RF, RNF o BDD?</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <div class="spec-instrument-list reveal">
+          <details class="spec-instrument" open>
+            <summary><span class="spec-number">I-01</span><span><strong>Ficha de requisito funcional</strong><small>Define una capacidad singular, sus reglas, entradas, excepciones y salida observable.</small></span><span class="summary-action">Ejemplo + plantilla</span></summary>
+            <div class="spec-instrument-body">
+              <section class="spec-resolved" aria-labelledby="rf-instrument-example">
+                <p class="overline">Ejemplo diligenciado</p><h3 id="rf-instrument-example">RF-03 · Consultar registro por QR</h3>
+                <dl class="spec-facts">
+                  <div><dt>Fuente</dt><dd>E-OBS-03 y entrevista E-ENT-01.</dd></div>
+                  <div><dt>Actor/disparador</dt><dd>El guarda recibe a un visitante con código QR.</dd></div>
+                  <div><dt>Entrada</dt><dd>Identificador contenido en el código; no incluye datos personales visibles.</dd></div>
+                  <div><dt>Comportamiento</dt><dd>Localizar el registro vigente y mostrar únicamente los datos autorizados.</dd></div>
+                  <div><dt>Excepción</dt><dd>Si el código vence o no existe, informar el motivo y ofrecer el flujo manual autorizado.</dd></div>
+                  <div><dt>Resultado</dt><dd>El guarda puede continuar o detener el ingreso con una decisión trazable.</dd></div>
+                </dl>
+              </section>
+              <section class="spec-template" aria-labelledby="rf-instrument-template">
+                <p class="overline">Plantilla reutilizable</p><h3 id="rf-instrument-template">Especificación RF</h3>
+                <pre><code id="g2-template-rf">ID: RF-[número]
+NOMBRE: [verbo + objeto]
+FUENTE: [ID de entrevista/observación/documento]
+OBJETIVO RELACIONADO: [ID]
+ACTOR Y DISPARADOR: [quién y cuándo]
+ENTRADAS: [datos necesarios]
+
+ENUNCIADO
+El sistema debe permitir a [actor] [acción singular] para [resultado de negocio].
+
+REGLAS: [condiciones que deben cumplirse]
+EXCEPCIONES: [qué ocurre si falta algo]
+SALIDA OBSERVABLE: [resultado visible o registrable]
+DEPENDENCIAS: [otros requisitos o sistemas]
+PRIORIDAD: [Must/Should/Could/Won't]
+ESTADO: [propuesto/validado/aprobado]</code></pre>
+                <div class="copy-control"><button class="button button-secondary" type="button" data-copy-target="g2-template-rf">Copiar plantilla RF</button><span class="copy-status" role="status" aria-live="polite"></span></div>
+              </section>
+            </div>
+          </details>
+
+          <details class="spec-instrument">
+            <summary><span class="spec-number">I-02</span><span><strong>Escenario de calidad para RNF</strong><small>Convierte palabras vagas como rápido, seguro o disponible en una condición medible.</small></span><span class="summary-action">Ejemplo + plantilla</span></summary>
+            <div class="spec-instrument-body">
+              <section class="spec-resolved" aria-labelledby="rnf-instrument-example">
+                <p class="overline">Ejemplo diligenciado</p><h3 id="rnf-instrument-example">RNF-03 · Rendimiento de lectura</h3>
+                <dl class="spec-facts">
+                  <div><dt>Atributo</dt><dd>Rendimiento.</dd></div>
+                  <div><dt>Estímulo</dt><dd>Una solicitud válida de consulta por QR.</dd></div>
+                  <div><dt>Entorno</dt><dd>Hora pico con 150 solicitudes concurrentes y datos de prueba representativos.</dd></div>
+                  <div><dt>Respuesta</dt><dd>Mostrar los datos autorizados o un error controlado.</dd></div>
+                  <div><dt>Medida</dt><dd>Latencia de extremo a extremo en percentil 95.</dd></div>
+                  <div><dt>Umbral/prueba</dt><dd>Menos de 3 segundos; prueba de carga con versión y entorno registrados.</dd></div>
+                </dl>
+              </section>
+              <section class="spec-template" aria-labelledby="rnf-instrument-template">
+                <p class="overline">Plantilla reutilizable</p><h3 id="rnf-instrument-template">Especificación RNF</h3>
+                <pre><code id="g2-template-rnf">ID: RNF-[número]
+ATRIBUTO DE CALIDAD: [rendimiento/seguridad/usabilidad/...]
+FUENTE Y JUSTIFICACIÓN: [evidencia]
+ESTÍMULO: [evento que activa la respuesta]
+ENTORNO: [carga, dispositivo, horario, red o condición]
+RESPUESTA ESPERADA: [comportamiento observable]
+MEDIDA: [unidad o indicador]
+UMBRAL: [valor mínimo/máximo]
+MÉTODO DE VERIFICACIÓN: [prueba, revisión o inspección]
+RESPONSABLE DE VALIDAR: [rol]
+
+ENUNCIADO
+En [entorno], cuando [estímulo], el sistema debe [respuesta] cumpliendo [medida y umbral].</code></pre>
+                <div class="copy-control"><button class="button button-secondary" type="button" data-copy-target="g2-template-rnf">Copiar plantilla RNF</button><span class="copy-status" role="status" aria-live="polite"></span></div>
+              </section>
+            </div>
+          </details>
+
+          <details class="spec-instrument">
+            <summary><span class="spec-number">I-03</span><span><strong>Tarjeta de historia de usuario e INVEST</strong><small>Conserva el valor del actor y revisa si la historia está lista para conversar y estimar.</small></span><span class="summary-action">Ejemplo + plantilla</span></summary>
+            <div class="spec-instrument-body">
+              <section class="spec-resolved" aria-labelledby="story-instrument-example">
+                <p class="overline">Ejemplo diligenciado</p><h3 id="story-instrument-example">HU-03 · Agilizar consulta de ingreso</h3>
+                <blockquote class="story-example">Como guarda, quiero consultar el registro del visitante mediante su QR para reducir la espera y tomar una decisión trazable.</blockquote>
+                <ul class="invest-check">
+                  <li><strong>I · Independiente:</strong> puede planearse sin el módulo de reportes.</li>
+                  <li><strong>N · Negociable:</strong> el QR es una opción acordada, no una excusa para omitir conversación.</li>
+                  <li><strong>V · Valiosa:</strong> reduce espera y mejora trazabilidad.</li>
+                  <li><strong>E · Estimable:</strong> entradas, salida y dependencias están visibles.</li>
+                  <li><strong>S · Pequeña:</strong> una sola consulta, no todo el control de acceso.</li>
+                  <li><strong>T · Comprobable:</strong> tiene criterios funcionales y de rendimiento.</li>
+                </ul>
+              </section>
+              <section class="spec-template" aria-labelledby="story-instrument-template">
+                <p class="overline">Plantilla reutilizable</p><h3 id="story-instrument-template">Historia + revisión INVEST</h3>
+                <pre><code id="g2-template-story">ID: HU-[número]
+FUENTE: [RF y evidencia relacionada]
+PRIORIDAD: [MoSCoW]
+
+Como [rol específico]
+quiero [capacidad o intención]
+para [beneficio observable].
+
+INVEST
+[ ] Independiente o dependencias explícitas
+[ ] Negociable, sin diseño cerrado innecesario
+[ ] Valiosa para un actor
+[ ] Estimable por el equipo
+[ ] Suficientemente pequeña
+[ ] Comprobable con criterios
+
+PREGUNTAS ABIERTAS: [dudas]
+DEFINITION OF READY: [condiciones antes de desarrollar]</code></pre>
+                <div class="copy-control"><button class="button button-secondary" type="button" data-copy-target="g2-template-story">Copiar plantilla de historia</button><span class="copy-status" role="status" aria-live="polite"></span></div>
+              </section>
+            </div>
+          </details>
+
+          <details class="spec-instrument">
+            <summary><span class="spec-number">I-04</span><span><strong>Matriz de criterios BDD</strong><small>Describe ejemplos concretos de flujo exitoso, alternativa y error.</small></span><span class="summary-action">Ejemplo + plantilla</span></summary>
+            <div class="spec-instrument-body">
+              <section class="spec-resolved" aria-labelledby="bdd-instrument-example">
+                <p class="overline">Ejemplo diligenciado</p><h3 id="bdd-instrument-example">CA-03 · Tres escenarios esenciales</h3>
+                <div class="bdd-example-list">
+                  <article><span>Flujo exitoso</span><p><strong>Dado</strong> un visitante con registro vigente, <strong>cuando</strong> el guarda lee el QR, <strong>entonces</strong> observa los datos autorizados y puede continuar.</p></article>
+                  <article><span>Alternativa</span><p><strong>Dado</strong> un QR vencido, <strong>cuando</strong> se intenta consultar, <strong>entonces</strong> se informa la causa y se ofrece el flujo manual autorizado.</p></article>
+                  <article><span>Permiso</span><p><strong>Dado</strong> un usuario sin rol de guarda, <strong>cuando</strong> intenta consultar el QR, <strong>entonces</strong> se rechaza la operación y se registra el intento.</p></article>
+                </div>
+              </section>
+              <section class="spec-template" aria-labelledby="bdd-instrument-template">
+                <p class="overline">Plantilla reutilizable</p><h3 id="bdd-instrument-template">Matriz BDD</h3>
+                <pre><code id="g2-template-bdd">ID: CA-[número]
+HISTORIA / RF: [IDs]
+
+ESCENARIO: [nombre orientado al comportamiento]
+Dado que [contexto verificable]
+Y [condición adicional necesaria]
+Cuando [actor ejecuta una acción]
+Entonces [resultado observable]
+Y [regla o efecto adicional]
+
+DATOS DE EJEMPLO: [valores ficticios controlados]
+TIPO: [feliz/alternativo/error/permiso/límite]
+AUTOMATIZABLE: [sí/no y razón]
+EVIDENCIA ESPERADA: [captura, log, respuesta o métrica]</code></pre>
+                <div class="copy-control"><button class="button button-secondary" type="button" data-copy-target="g2-template-bdd">Copiar plantilla BDD</button><span class="copy-status" role="status" aria-live="polite"></span></div>
+              </section>
+            </div>
+          </details>
+
+          <details class="spec-instrument">
+            <summary><span class="spec-number">I-05</span><span><strong>Matriz de trazabilidad y entrada al backlog</strong><small>Evita requisitos huérfanos y conserva la relación con pruebas y decisiones.</small></span><span class="summary-action">Ejemplo + plantilla</span></summary>
+            <div class="spec-instrument-body">
+              <section class="spec-resolved" aria-labelledby="trace-instrument-example">
+                <p class="overline">Ejemplo diligenciado</p><h3 id="trace-instrument-example">Fila lista para revisión</h3>
+                <div class="mini-trace-grid">
+                  <div><span>Fuente</span><strong>E-OBS-03</strong></div><div><span>RF/RNF</span><strong>RF-03 · RNF-03</strong></div><div><span>Historia</span><strong>HU-03</strong></div><div><span>Criterios</span><strong>CA-03.1 a CA-03.3</strong></div><div><span>Pruebas</span><strong>PF-03 · PC-03</strong></div><div><span>Prioridad/estado</span><strong>Must · validado</strong></div>
+                </div>
+                <p class="ready-note"><strong>Lista para desarrollar cuando:</strong> las fuentes están identificadas, las dudas críticas resueltas, los criterios son comprobables, las dependencias están visibles y el equipo puede estimarla.</p>
+              </section>
+              <section class="spec-template" aria-labelledby="trace-instrument-template">
+                <p class="overline">Plantilla reutilizable</p><h3 id="trace-instrument-template">Trazabilidad + Definition of Ready</h3>
+                <pre><code id="g2-template-trace">OBJETIVO: [OBJ-ID]
+EVIDENCIA: [E-ID]
+REGLA DE NEGOCIO: [RN-ID]
+REQUISITO FUNCIONAL: [RF-ID]
+REQUISITO NO FUNCIONAL: [RNF-ID]
+HISTORIA: [HU-ID]
+CRITERIOS: [CA-IDs]
+PRUEBAS: [PR-IDs]
+ARTEFACTO O MÓDULO: [componente]
+PRIORIDAD: [MoSCoW]
+ESTADO / VERSIÓN: [dato]
+
+DEFINITION OF READY
+[ ] Fuente y valor de negocio confirmados
+[ ] Reglas, excepciones y datos aclarados
+[ ] RNF medibles vinculados
+[ ] Criterios BDD revisados
+[ ] Dependencias y riesgos visibles
+[ ] Tamaño estimable por el equipo</code></pre>
+                <div class="copy-control"><button class="button button-secondary" type="button" data-copy-target="g2-template-trace">Copiar matriz</button><span class="copy-status" role="status" aria-live="polite"></span></div>
+              </section>
+            </div>
+          </details>
+        </div>
+
+        <section class="requirement-factory reveal" aria-labelledby="factory-title">
+          <div class="factory-intro">
+            <p class="eyebrow">Taller de transferencia</p>
+            <h2 id="factory-title">Construye el primer paquete de tu proyecto</h2>
+            <p>Usa un hallazgo ya contrastado. El generador organiza la información; no reemplaza la validación humana ni decide la arquitectura.</p>
+            <div class="factory-boundary"><strong>Antes de comenzar</strong><span>No incluyas nombres, cédulas, contraseñas ni información confidencial.</span></div>
+          </div>
+          <form id="requirement-factory-form" class="factory-form" novalidate>
+            <div class="factory-grid">
+              <label><span>Proyecto</span><input id="factory-project" name="project" type="text" required autocomplete="off" placeholder="Ejemplo: Préstamo de herramientas"></label>
+              <label><span>ID de la evidencia</span><input id="factory-source-id" name="sourceId" type="text" required autocomplete="off" placeholder="Ejemplo: E-OBS-02"></label>
+              <label class="factory-span"><span>Hallazgo validado</span><textarea id="factory-finding" name="finding" rows="3" required placeholder="Ejemplo: en tres observaciones, localizar una herramienta tomó entre 4 y 6 minutos"></textarea></label>
+              <label><span>Actor</span><input id="factory-actor" name="actor" type="text" required autocomplete="off" placeholder="Ejemplo: encargado del almacén"></label>
+              <label><span>Acción funcional en infinitivo</span><input id="factory-action" name="action" type="text" required autocomplete="off" placeholder="Ejemplo: consultar la disponibilidad por código"></label>
+              <label class="factory-span"><span>Beneficio o resultado de negocio</span><input id="factory-benefit" name="benefit" type="text" required autocomplete="off" placeholder="Ejemplo: reducir el tiempo de entrega y evitar préstamos duplicados"></label>
+              <label><span>Atributo de calidad</span><select id="factory-quality" name="quality" required><option value="">Selecciona un atributo</option><option value="Rendimiento">Rendimiento</option><option value="Seguridad">Seguridad</option><option value="Disponibilidad">Disponibilidad</option><option value="Usabilidad y accesibilidad">Usabilidad y accesibilidad</option><option value="Compatibilidad">Compatibilidad</option><option value="Mantenibilidad">Mantenibilidad</option></select></label>
+              <label><span>Condición o entorno</span><input id="factory-condition" name="condition" type="text" required autocomplete="off" placeholder="Ejemplo: con 50 consultas concurrentes"></label>
+              <label class="factory-span"><span>Medida y umbral verificable</span><input id="factory-threshold" name="threshold" type="text" required autocomplete="off" placeholder="Ejemplo: el 95 % responde en menos de 2 segundos, medido con prueba de carga"></label>
+              <label><span>Prioridad MoSCoW</span><select id="factory-priority" name="priority" required><option value="">Selecciona prioridad</option><option value="Must">Must · imprescindible</option><option value="Should">Should · importante</option><option value="Could">Could · deseable</option><option value="Won't">Won't · no en esta versión</option></select></label>
+            </div>
+            <div class="factory-actions"><button class="button button-primary" type="submit">Generar paquete</button><button class="ghost-button" type="reset">Limpiar</button><span id="factory-form-status" class="factory-status" role="alert" aria-live="assertive"></span></div>
+          </form>
+          <article id="factory-result" class="factory-result" aria-labelledby="factory-result-title" tabindex="-1" hidden>
+            <header><div><p class="overline">Borrador generado</p><h3 id="factory-result-title">Paquete de especificación para revisar</h3></div><span>Estado: propuesto</span></header>
+            <pre><code id="factory-result-text"></code></pre>
+            <div class="copy-control"><button class="button button-secondary" type="button" data-copy-target="factory-result-text">Copiar paquete</button><span class="copy-status" role="status" aria-live="polite"></span></div>
+            <p class="factory-next"><strong>Revisión obligatoria:</strong> confirma el lenguaje con el interesado, separa RF y RNF, prueba los escenarios y completa el lienzo de construcción antes de crear tablas, servicios o pantallas.</p>
+          </article>
+        </section>
       </div>
     </section>
 
@@ -334,11 +677,156 @@
       </div>
     </section>
 
+    <section class="section-pad construction-bridge" id="construccion" aria-labelledby="construction-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">04 · Puente hacia la construcción</p>
+            <h2 id="construction-title">Una historia lista orienta datos, interfaz, lógica y pruebas.</h2>
+          </div>
+          <p class="section-intro">La historia expresa valor; los RF y BDD describen comportamiento; los RNF fijan límites. Con esos insumos el equipo puede proponer componentes sin inventar tablas o pantallas desconectadas del problema.</p>
+        </div>
+
+        <ol class="construction-method reveal" aria-label="Método para derivar partes del software">
+          <li><span>01</span><strong>Extrae lenguaje del dominio</strong><small>Actores, objetos, estados, eventos y reglas.</small></li>
+          <li><span>02</span><strong>Decide qué persiste</strong><small>Entidades, atributos, relaciones, historial y restricciones.</small></li>
+          <li><span>03</span><strong>Asigna responsabilidades</strong><small>Interfaz presenta; aplicación coordina; dominio decide; datos conservan.</small></li>
+          <li><span>04</span><strong>Diseña un corte vertical</strong><small>Una historia pequeña atravesando interfaz, backend y datos.</small></li>
+          <li><span>05</span><strong>Construye con pruebas</strong><small>BDD guía aceptación; reglas y RNF requieren pruebas propias.</small></li>
+        </ol>
+
+        <article class="construction-case reveal" aria-labelledby="construction-case-title">
+          <header>
+            <div><p class="overline">Ejemplo resuelto · HU-03</p><h3 id="construction-case-title">Del texto de la historia a decisiones de diseño</h3></div>
+            <blockquote>Como guarda, quiero consultar el registro del visitante mediante su QR para reducir la espera y tomar una decisión trazable.</blockquote>
+          </header>
+
+          <div class="story-analysis-wrap" role="region" aria-label="Análisis de la historia por fragmentos" tabindex="0">
+            <table class="story-analysis-table">
+              <thead><tr><th>Fragmento o criterio</th><th>Qué revela</th><th>Candidato de construcción</th><th>Qué falta preguntar</th></tr></thead>
+              <tbody>
+                <tr><td>“Como guarda”</td><td>Actor, tarea y límite de acceso.</td><td>Rol, autorización y vista de consulta.</td><td>¿Qué datos puede ver y qué acciones puede ejecutar?</td></tr>
+                <tr><td>“consultar el registro”</td><td>Caso de uso y resultado esperado.</td><td>Servicio de aplicación, consulta de datos y respuesta controlada.</td><td>¿Cuál registro está vigente y cómo se selecciona?</td></tr>
+                <tr><td>“visitante mediante QR”</td><td>Objetos del dominio e identificador.</td><td>Visitante, ingreso, equipo y token QR como conceptos candidatos.</td><td>¿Qué dato identifica sin exponer información personal?</td></tr>
+                <tr><td>“reducir la espera” + RNF-03</td><td>Objetivo y atributo de rendimiento.</td><td>Métrica p95, índices o estrategia de consulta sujetos a prueba.</td><td>¿Cuál carga representa la hora pico real?</td></tr>
+                <tr><td>BDD: vigente, vencido y sin permiso</td><td>Estados, alternativas y errores.</td><td>Pantallas de éxito/error, códigos de respuesta y pruebas de permiso.</td><td>¿Cuál es el flujo manual autorizado?</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="software-parts-grid">
+            <section class="software-part part-data" aria-labelledby="part-data-title">
+              <span class="part-label">Datos persistentes</span><h3 id="part-data-title">Modelo de datos candidato</h3>
+              <ul><li><strong>Visitante:</strong> identificador interno y datos mínimos autorizados.</li><li><strong>Ingreso:</strong> fecha, estado y vínculo con visitante.</li><li><strong>Equipo:</strong> identificador y serial validado.</li><li><strong>IngresoEquipo:</strong> relación entre un ingreso y sus equipos.</li><li><strong>Autorización:</strong> actor, decisión, motivo y vigencia.</li><li><strong>EventoAuditoría:</strong> quién hizo qué y cuándo.</li></ul>
+              <div class="relation-sketch" aria-label="Relaciones candidatas"><code>Visitante 1 — N Ingreso</code><code>Ingreso N — M Equipo</code><code>Ingreso 1 — N Autorización</code><code>Ingreso 1 — N EventoAuditoría</code></div>
+              <p class="part-question"><strong>Antes de crear tablas:</strong> valida cardinalidad, obligatoriedad, unicidad, conservación, privacidad y qué cambios necesitan historial.</p>
+            </section>
+
+            <section class="software-part part-backend" aria-labelledby="part-backend-title">
+              <span class="part-label">Aplicación y dominio</span><h3 id="part-backend-title">Caso de uso y reglas</h3>
+              <ol><li>Recibir identificador QR sin confiar en datos del navegador.</li><li>Comprobar usuario, rol, firma y vigencia.</li><li>Localizar el ingreso activo con los datos autorizados.</li><li>Aplicar la regla de excepción o devolver un resultado controlado.</li><li>Registrar el evento de auditoría.</li></ol>
+              <p class="part-question"><strong>Candidato:</strong> caso de uso <code>ConsultarIngresoPorQr</code>. La URL, el framework y el patrón de código se deciden después.</p>
+            </section>
+
+            <section class="software-part part-interface" aria-labelledby="part-interface-title">
+              <span class="part-label">Interfaz</span><h3 id="part-interface-title">Pantalla y estados</h3>
+              <ul><li>Listo para escanear.</li><li>Procesando, sin permitir doble envío.</li><li>Registro vigente y acción permitida.</li><li>QR vencido o inexistente.</li><li>Permiso insuficiente.</li><li>Sin conexión y alternativa autorizada.</li></ul>
+              <p class="part-question"><strong>Accesibilidad:</strong> foco visible, anuncio del resultado, instrucciones sin depender solo del color y alternativa al uso de cámara.</p>
+            </section>
+
+            <section class="software-part part-quality" aria-labelledby="part-quality-title">
+              <span class="part-label">Seguridad y calidad</span><h3 id="part-quality-title">Controles derivados</h3>
+              <ul><li>Acceso por rol y mínimo privilegio.</li><li>Token temporal sin datos personales legibles.</li><li>Auditoría sin registrar secretos.</li><li>Conservación y eliminación acordadas.</li><li>Rendimiento p95 vinculado a RNF-03.</li><li>Recuperación y comportamiento sin red.</li></ul>
+            </section>
+
+            <section class="software-part part-tests" aria-labelledby="part-tests-title">
+              <span class="part-label">Pruebas e incremento</span><h3 id="part-tests-title">Corte vertical inicial</h3>
+              <ul><li><strong>Aceptación:</strong> vigente, vencido y sin permiso.</li><li><strong>Unidad:</strong> vigencia y reglas de autorización.</li><li><strong>Integración:</strong> consulta y registro de auditoría.</li><li><strong>Accesibilidad:</strong> teclado, foco y anuncios.</li><li><strong>Rendimiento:</strong> p95 bajo la carga acordada.</li></ul>
+              <p class="part-question"><strong>Incremento:</strong> una consulta QR funcional de extremo a extremo. Reportes, administración y analítica permanecen en historias separadas.</p>
+            </section>
+          </div>
+
+          <aside class="design-boundary"><strong>Regla del equipo ADSO</strong><p>Los sustantivos sugieren conceptos, no crean automáticamente tablas. Los verbos sugieren casos de uso, no endpoints definitivos. Cada entidad, pantalla o servicio debe poder señalar el requisito, la historia o el criterio que lo justifica.</p></aside>
+        </article>
+
+        <section class="construction-template reveal" aria-labelledby="construction-template-title">
+          <div><p class="eyebrow">Instrumento reutilizable</p><h3 id="construction-template-title">Lienzo de derivación para un incremento</h3><p>Completa un lienzo por historia priorizada. Si una decisión no tiene fuente, conviértela en pregunta y no en código.</p></div>
+          <div>
+            <pre><code id="g2-template-construction">PROYECTO: [nombre]
+HISTORIA: [HU-ID y enunciado]
+REQUISITOS: [RF/RNF relacionados]
+CRITERIOS BDD: [CA-IDs]
+
+LENGUAJE DEL DOMINIO
+- Actores y permisos: [roles]
+- Objetos o conceptos: [sustantivos validados]
+- Eventos: [qué ocurre]
+- Estados: [ciclo de vida]
+- Reglas: [condiciones e invariantes]
+
+DATOS CANDIDATOS
+- Entidades: [nombre y propósito]
+- Atributos mínimos: [dato, tipo conceptual, obligatorio]
+- Relaciones y cardinalidad: [1:1 / 1:N / N:M]
+- Identificadores y unicidad: [reglas]
+- Historial, privacidad y conservación: [decisiones]
+
+PARTES DEL SOFTWARE
+- Interfaz y estados: [carga/éxito/vacío/error/sin permiso/sin conexión]
+- Caso de uso o servicio: [responsabilidad]
+- Reglas de dominio: [validaciones]
+- Persistencia: [operaciones necesarias]
+- Integraciones: [sistema externo y contrato]
+- Seguridad y operación: [roles/auditoría/logs/recuperación]
+
+PRUEBAS
+- Aceptación BDD: [escenarios]
+- Unidad: [reglas]
+- Integración: [datos y servicios]
+- RNF: [métrica, umbral y entorno]
+
+CORTE VERTICAL
+- Incluye: [mínimo extremo a extremo]
+- No incluye: [historias futuras]
+- Preguntas pendientes: [lista]
+- Decisión, responsable y fecha: [registro]</code></pre>
+            <div class="copy-control"><button class="button button-secondary" type="button" data-copy-target="g2-template-construction">Copiar lienzo</button><span class="copy-status" role="status" aria-live="polite"></span></div>
+          </div>
+        </section>
+
+        <section class="construction-canvas reveal" aria-labelledby="construction-canvas-title">
+          <div class="canvas-intro"><p class="eyebrow">Ahora con tu historia</p><h3 id="construction-canvas-title">Genera un mapa inicial de construcción</h3><p>Escribe decisiones ya conversadas. El resultado propone preguntas y responsabilidades; no genera SQL, endpoints ni pantallas definitivas.</p></div>
+          <form id="construction-canvas-form" class="construction-form" novalidate>
+            <div class="construction-form-grid">
+              <label><span>Proyecto</span><input id="construction-project" name="project" type="text" required autocomplete="off" placeholder="Ejemplo: Préstamo de herramientas"></label>
+              <label><span>ID de historia</span><input id="construction-story-id" name="storyId" type="text" required autocomplete="off" placeholder="Ejemplo: HU-04"></label>
+              <label><span>Actor</span><input id="construction-actor" name="actor" type="text" required autocomplete="off" placeholder="Ejemplo: encargado del almacén"></label>
+              <label><span>Acción o caso de uso</span><input id="construction-action" name="action" type="text" required autocomplete="off" placeholder="Ejemplo: registrar el préstamo de una herramienta"></label>
+              <label class="construction-span"><span>Conceptos del dominio separados por comas</span><input id="construction-concepts" name="concepts" type="text" required autocomplete="off" placeholder="Ejemplo: herramienta, aprendiz, préstamo, devolución"></label>
+              <label class="construction-span"><span>Regla de negocio principal</span><textarea id="construction-rule" name="rule" rows="3" required placeholder="Ejemplo: una herramienta no puede prestarse si tiene un préstamo activo"></textarea></label>
+              <label class="construction-span"><span>Estados que debe mostrar la interfaz</span><input id="construction-states" name="states" type="text" required autocomplete="off" placeholder="Ejemplo: disponible, procesando, préstamo creado, herramienta ocupada, sin permiso"></label>
+              <label><span>Permiso o rol autorizado</span><input id="construction-permission" name="permission" type="text" required autocomplete="off" placeholder="Ejemplo: almacenista autorizado"></label>
+              <label><span>RNF o medida clave</span><input id="construction-quality" name="quality" type="text" required autocomplete="off" placeholder="Ejemplo: respuesta p95 menor a 2 segundos"></label>
+              <label class="construction-span"><span>Integración externa, si aplica</span><input id="construction-integration" name="integration" type="text" autocomplete="off" placeholder="Ejemplo: lector de código; deja vacío si no aplica"></label>
+            </div>
+            <div class="construction-actions"><button class="button button-primary" type="submit">Generar mapa</button><button class="ghost-button" type="reset">Limpiar</button><span id="construction-form-status" class="construction-status" role="alert" aria-live="assertive"></span></div>
+          </form>
+          <article id="construction-result" class="construction-result" aria-labelledby="construction-result-title" tabindex="-1" hidden>
+            <header><div><p class="overline">Borrador generado</p><h3 id="construction-result-title">Mapa del incremento para revisar</h3></div><span>Diseño candidato</span></header>
+            <pre><code id="construction-result-text"></code></pre>
+            <div class="copy-control"><button class="button button-secondary" type="button" data-copy-target="construction-result-text">Copiar mapa</button><span class="copy-status" role="status" aria-live="polite"></span></div>
+          </article>
+        </section>
+
+        <div class="construction-next reveal"><p><strong>Siguiente estación:</strong> usa este mapa para justificar la arquitectura, seleccionar tecnologías y dividir el trabajo del equipo.</p><a class="button button-primary" href="#arquitectura" data-scroll>Continuar a arquitectura <span aria-hidden="true">→</span></a></div>
+      </div>
+    </section>
+
     <section class="section-pad architecture-section" id="arquitectura" aria-labelledby="architecture-title">
       <div class="container">
         <div class="section-heading reveal">
           <div>
-            <p class="eyebrow">04 · Vista de sistema</p>
+            <p class="eyebrow">05 · Vista de sistema</p>
             <h2 id="architecture-title">Una aplicación es un flujo. <span class="text-gradient">No solo una pantalla.</span></h2>
           </div>
           <p class="section-intro">La arquitectura general muestra quién consume el sistema, dónde vive cada responsabilidad y cómo circulan los datos.</p>
@@ -418,7 +906,7 @@ No inventes secretos; justifica cada decisión.</code></pre><p class="prompt-war
 
     <section class="section-pad challenge-section" id="desafio" aria-labelledby="challenge-title">
       <div class="container">
-        <div class="challenge-heading reveal"><div><p class="eyebrow">05 · Panel de validación</p><h2 id="challenge-title">Ahora toma una decisión de diseño.</h2></div><div class="challenge-badge"><span>Reto final</span><strong>01 / 01</strong></div></div>
+        <div class="challenge-heading reveal"><div><p class="eyebrow">06 · Panel de validación</p><h2 id="challenge-title">Ahora toma una decisión de diseño.</h2></div><div class="challenge-badge"><span>Reto final</span><strong>01 / 01</strong></div></div>
         <div class="challenge-card reveal">
           <div class="challenge-context">
             <div class="challenge-icon" aria-hidden="true">?</div>
@@ -429,8 +917,9 @@ No inventes secretos; justifica cada decisión.</code></pre><p class="prompt-war
           </div>
           <div class="challenge-task">
             <div class="task-header"><span class="task-number">01</span><div><p class="overline">Tu misión</p><h3>Reescribe el requerimiento</h3></div></div>
-            <p>Usa el Constructor A y el Constructor B para expresar una historia específica y un escenario que se pueda comprobar.</p>
-            <div class="success-criteria"><span>Condición de aprobación</span><span>Historia completa + Given / When / Then lógico</span></div>
+            <p><strong>Paso 1:</strong> Sube a las secciones <em>Constructor A</em> y <em>Constructor B</em> en esta misma guía. Configura la Historia de Usuario para el rol <strong>cliente</strong> que necesita <strong>comprar un producto</strong> para <strong>confirmar mi pedido</strong>. Luego, arma el escenario BDD seleccionando las opciones lógicas para sesión activa, confirmación de compra y actualización de stock.</p>
+            <p style="margin-bottom: 1rem;"><strong>Paso 2:</strong> Vuelve a esta sección y presiona el botón para evaluar tu solución.</p>
+            <div class="success-criteria"><span>Primera puerta de calidad</span><span>Historia completa + Given / When / Then lógico</span></div>
             <button class="button button-primary challenge-button" id="evaluate-challenge" type="button">Evaluar mi requerimiento <span aria-hidden="true">↗</span></button>
             <div class="challenge-feedback" id="challenge-feedback" role="status" aria-live="polite"></div>
           </div>
@@ -438,8 +927,69 @@ No inventes secretos; justifica cada decisión.</code></pre><p class="prompt-war
 
         <div class="approval-panel" id="approval-panel" aria-live="polite" aria-hidden="true">
           <div class="approval-orbit"><span>✓</span></div>
-          <div><p class="eyebrow">Guía aprobada</p><h3>Contexto convertido en comportamiento.</h3><p>Tu requerimiento ya puede ser entendido, desarrollado y verificado por el equipo.</p></div>
-          <div class="approval-score"><strong>100%</strong><span>claridad</span></div>
+          <div><p class="eyebrow">Especificación clara</p><h3>Contexto convertido en comportamiento.</h3><p>Tu requisito ya puede pasar al lienzo de construcción; todavía debe derivarse y validarse antes de programar.</p></div>
+          <div class="approval-score"><strong>100%</strong><span>claridad de especificación</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE RETO ENTREGABLE -->
+    <section class="completion-section" id="cierre" style="padding: 4rem 2rem; background-color: var(--surface-alt, #f8f9fa); margin-top: 2rem;">
+      <div class="container completion-card" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
+        <p class="eyebrow" style="color: var(--primary, #0055ff); text-transform: uppercase; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Formación SENA por Proyectos</p>
+        <h2 style="margin-bottom: 1rem; color: var(--text-primary, #1e293b); font-size: 1.75rem; letter-spacing: -0.02em;">Producto Entregable del Proyecto Formativo</h2>
+        <p style="margin-bottom: 1.5rem; color: var(--text-secondary, #475569); line-height: 1.6;">
+          En la metodología de <strong>Formación por Proyectos del SENA</strong>, la especificación de requisitos y la toma de decisiones arquitectónicas son los pilares del diseño técnico. Mediante el recorrido completo por esta guía web (análisis de historias de usuario, simulador BDD, detector de ambigüedad y matriz de arquitectura), has formalizado los requisitos fundamentales para tu <strong>Proyecto Formativo Core</strong>.
+        </p>
+
+        <div class="evidence-box" style="width: 100%; padding: 1.75rem; background: var(--surface-muted, #f1f5f9); border-radius: 8px; border: 1px solid var(--border-color, #e2e8f0);">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.25rem;">🛠️</span>
+            <h3 style="margin: 0; font-size: 1.15rem; color: var(--text-primary, #1e293b);">Insumos Logrados en el Recorrido Web</h3>
+          </div>
+          <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: var(--text-secondary, #475569); line-height: 1.6;">
+            <li><strong>Módulo 01 & 02:</strong> Definición de alcance sin ambigüedades e identificación del problema del cliente.</li>
+            <li><strong>Módulo 03 (Simulador BDD):</strong> Construcción lógica de escenarios de aceptación mediante la estructura <em>Given / When / Then</em>.</li>
+            <li><strong>Detector de Ambigüedad:</strong> Limpieza del lenguaje informal para transformar intenciones en historias probables.</li>
+            <li><strong>Módulo 04 (Lienzo de Construcción):</strong> Derivación de datos, relaciones, casos de uso, estados de interfaz, permisos y pruebas.</li>
+            <li><strong>Módulo 05 (Vista de Arquitectura):</strong> Selección justificativa de responsabilidades y capas del sistema.</li>
+          </ul>
+
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.25rem;">📦</span>
+            <h3 style="margin: 0; font-size: 1.15rem; color: var(--text-primary, #1e293b);">Estructura del Producto a Entregar (Documento PDF)</h3>
+          </div>
+          <p style="margin-bottom: 0.5rem; color: var(--text-secondary, #475569);">Consolida un documento PDF técnico con la especificación del software de tu proyecto, que debe contener estrictamente lo siguiente:</p>
+          <ul class="checklist" style="list-style: none; padding-left: 0; margin-bottom: 1.5rem; color: var(--text-secondary, #475569); line-height: 1.6;">
+            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--primary, #0055ff);">✅</span> <div><strong>Portada Institucional SENA:</strong> Datos del Proyecto Formativo, Aprendices, Ficha y Centro Agroempresarial.</div></li>
+            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--primary, #0055ff);">✅</span> <div><strong>Propuesta de Arquitectura de Software:</strong> Diagrama de bloques de capas y justificación de stack tecnológico (Frontend, API FastAPI/Node, DB PostgreSQL, Contenedores Docker).</div></li>
+            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--primary, #0055ff);">✅</span> <div><strong>Especificación de Historias de Usuario (Mínimo 3):</strong> Redactadas en formato estandarizado (<em>Como... Quiero... Para...</em>).</div></li>
+            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--primary, #0055ff);">✅</span> <div><strong>Matriz de Criterios de Aceptación BDD:</strong> Escenarios detallados (<em>Given / When / Then</em>) para cada historia especificada.</div></li>
+            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--primary, #0055ff);">✅</span> <div><strong>Lienzo de Construcción:</strong> Modelo de datos conceptual, mapa de componentes, estados de interfaz, reglas, permisos, pruebas y corte vertical de al menos una historia priorizada.</div></li>
+            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--primary, #0055ff);">✅</span> <div><strong>Evidencia del Recorrido Web:</strong> Captura de pantalla legible del panel verde "Especificación clara (100%)" que aparece al superar el Reto Final de esta guía.</div></li>
+          </ul>
+
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <span style="font-size: 1.25rem;">📤</span>
+            <h3 style="margin: 0; font-size: 1.15rem; color: var(--text-primary, #1e293b);">Protocolo y Nomenclatura de Entrega SENA</h3>
+          </div>
+          <p style="color: var(--text-secondary, #475569); margin-bottom: 0.5rem;">
+            Sube tu documento PDF a la plataforma LMS (Zajuna / Territorium) en la actividad correspondiente a:<br>
+            <strong style="color: var(--text-primary, #1e293b);">Evidencia: GA2-220501093-AA1-EV02 — Especificación de requisitos de software y diseño de arquitectura BDD</strong>
+          </p>
+          <p style="font-size: 0.9rem; color: var(--text-secondary, #64748b); margin: 0;">
+            Nomenclatura recomendada del archivo: <code>GA2-220501093-AA1-EV02_PrimerNombre_PrimerApellido.pdf</code>
+          </p>
+        </div>
+
+        <!-- Ruta Pedagógica ADSO: Navegación Inter-Guías -->
+        <div class="container guide-nav-banner" style="margin-top: 36px; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 12px; padding: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+          <a class="button button-ghost" href="../guia%201%20Descubrimiento%20del%20Negocio%20y%20Modelado%20de%20Procesos/index.html" style="white-space: nowrap; text-decoration: none;">← Guía 1: Descubrimiento</a>
+          <div style="text-align: center;">
+            <span style="color: #c084fc; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Ruta Formativa ADSO · Estación 2/4</span>
+            <h4 style="color: #f8fafc; font-size: 1rem; margin-top: 2px; margin-bottom: 0;">Ingeniería de Contexto</h4>
+          </div>
+          <a class="button button-primary" href="../guia%203%20Prototipado%20Est%C3%A1tico,%20Interfaz%20de%20Usuario%20%28UI%29%20y%20Validaci%C3%B3n%20Continua/index.html" style="white-space: nowrap; text-decoration: none;">Avanzar a Guía 3: Prototipado →</a>
         </div>
       </div>
     </section>
@@ -451,5 +1001,6 @@ No inventes secretos; justifica cada decisión.</code></pre><p class="prompt-war
 
   <script src="js/app.js" defer></script>
   <script src="js/simulator.js" defer></script>
+  <script src="js/workshop.js?v=3" defer></script>
 </body>
 </html>

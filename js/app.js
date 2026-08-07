@@ -148,7 +148,7 @@
   /**
    * Copia el texto de una salida de la guía y da feedback en el mismo botón.
    */
-  document.querySelectorAll("[data-copy-target]").forEach((copyButton) => {
+  document.querySelectorAll(".copy-button[data-copy-target]").forEach((copyButton) => {
     copyButton.addEventListener("click", async () => {
       const target = document.getElementById(copyButton.dataset.copyTarget);
       const text = target?.textContent?.trim();
@@ -169,6 +169,6 @@
   // El simulador emite este evento cuando el reto final se aprueba.
   document.addEventListener("guide:completed", () => {
     const labStatus = document.querySelector("#lab-status-text");
-    if (labStatus) labStatus.textContent = "Guía aprobada · 100%";
+    if (labStatus) labStatus.textContent = "Especificación clara · 100%";
   });
 })();
