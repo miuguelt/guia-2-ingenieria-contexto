@@ -237,6 +237,64 @@
             <div class="spec-example"><span class="example-label">Transforma lo vago en medible</span><p class="bad-requirement">✕ “La aplicación debe ser rápida y segura.”</p><p class="good-requirement">✓ “El 95 % de las consultas responde en menos de 2 s y la API exige HTTPS y token válido.”</p></div>
           </article>
         </div>
+        </div>
+
+        <!-- Análisis de Roles y Actores -->
+        <div class="roles-framework" style="margin-top: 36px; background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; padding: 24px;">
+          <div class="section-heading compact-heading" style="margin-bottom: 20px;">
+            <div>
+              <p class="eyebrow" style="color: #38bdf8;"><span class="eyebrow-dot"></span> Método de Análisis Temprano</p>
+              <h3 style="font-size: 1.25rem; font-weight: 700; color: #f8fafc;">Análisis de Actores, Roles y Permisos</h3>
+            </div>
+            <p style="color: #cbd5e1; font-size: 0.875rem;">Antes de escribir requisitos (qué hace el sistema), necesitas saber <strong>quién</strong> lo va a usar y <strong>qué límites</strong> tiene.</p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+            <div style="background: rgba(15, 23, 42, 0.5); border-left: 3px solid #60a5fa; border-radius: 6px; padding: 16px;">
+              <h4 style="color: #60a5fa; margin-bottom: 8px;">Actor vs. Rol</h4>
+              <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 8px;">
+                <strong>Actor:</strong> La entidad física o externa que interactúa con el sistema (Ej: Juan, el API del Banco).<br><br>
+                <strong>Rol:</strong> El conjunto de permisos lógicos en el sistema (Ej: Administrador, Cliente). Un actor asume un rol para operar.
+              </p>
+            </div>
+            <div style="background: rgba(15, 23, 42, 0.5); border-left: 3px solid #34d399; border-radius: 6px; padding: 16px;">
+              <h4 style="color: #34d399; margin-bottom: 8px;">Principio de Mínimo Privilegio</h4>
+              <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 8px;">
+                Un requerimiento de seguridad (RNF) clave. Nunca des más permisos de los estrictamente necesarios. Si el Recepcionista solo necesita leer inventario, no le des un rol que le permita borrar productos.
+              </p>
+            </div>
+          </div>
+
+          <h4 style="color: #f8fafc; font-size: 1.05rem; margin-bottom: 12px;">Herramienta: Matriz de Roles y Permisos (CRUD)</h4>
+          <p style="color: #cbd5e1; font-size: 0.85rem; margin-bottom: 16px;">Mapea los roles contra los módulos del sistema usando el acrónimo <strong>CRUD</strong> (Create/Crear, Read/Leer, Update/Actualizar, Delete/Borrar).</p>
+          
+          <div class="table-responsive" style="overflow-x: auto; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem; color: #cbd5e1;">
+              <thead style="background: rgba(15, 23, 42, 0.8); border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <tr>
+                  <th style="padding: 12px;">Módulo / Entidad</th>
+                  <th style="padding: 12px;">Rol: Guarda</th>
+                  <th style="padding: 12px;">Rol: Admin</th>
+                  <th style="padding: 12px;">Rol: Empleado</th>
+                </tr>
+              </thead>
+              <tbody style="background: rgba(15, 23, 42, 0.4);">
+                <tr>
+                  <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);"><strong>Equipos (Inventario)</strong></td>
+                  <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); color: #34d399;">C, R (Crear, Leer)</td>
+                  <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); color: #f87171;">C, R, U, D (Total)</td>
+                  <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); color: #94a3b8;">Sin Acceso</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);"><strong>Reportes Ingreso</strong></td>
+                  <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); color: #60a5fa;">R (Solo Leer suyos)</td>
+                  <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); color: #f87171;">C, R, U, D (Total)</td>
+                  <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); color: #60a5fa;">R (Solo Leer suyos)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
         <!-- Priorización y Matriz de Trazabilidad de Requisitos -->
         <div class="requirements-framework" style="margin-top: 36px; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(147, 51, 234, 0.3); border-radius: 12px; padding: 24px;">
@@ -301,6 +359,97 @@
                   </tr>
                 </tbody>
               </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formalización SOW -->
+        <div class="sow-framework reveal" style="margin-top: 36px; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 12px; padding: 24px; position: relative; overflow: hidden;">
+          <!-- Deco -->
+          <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: rgba(245, 158, 11, 0.1); border-radius: 50%; filter: blur(40px); pointer-events: none;"></div>
+
+          <div class="section-heading compact-heading" style="margin-bottom: 20px;">
+            <div>
+              <p class="eyebrow" style="color: #fbbf24;"><span class="eyebrow-dot" style="background: #fbbf24;"></span> Fin de la Fase de Requisitos</p>
+              <h3 style="font-size: 1.25rem; font-weight: 700; color: #f8fafc;">Formalización: El Documento de Alcance (SOW)</h3>
+            </div>
+            <p style="color: #cbd5e1; font-size: 0.875rem;">Una vez tienes los requisitos priorizados, necesitas formalizar el acuerdo con el cliente <strong>antes</strong> de gastar recursos en desarrollo.</p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr; gap: 20px; margin-bottom: 24px;">
+            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6;">
+              El <strong>Statement of Work (SOW)</strong> o Declaración del Alcance del Proyecto, es un documento formal (y muchas veces legal) que delimita exactamente qué se va a construir, previniendo la <em>corrupción del alcance</em> (cuando el cliente pide más cosas de las acordadas originalmente) y permitiendo calcular costos y tiempos precisos.
+            </p>
+          </div>
+
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 20px;">
+            <h4 style="color: #e2e8f0; font-size: 1rem; margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+              <span>📄 Estructura de un Contrato SOW</span>
+              <span style="font-size: 0.75rem; background: rgba(245, 158, 11, 0.2); color: #fbbf24; padding: 4px 8px; border-radius: 4px;">Firma Obligatoria</span>
+            </h4>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+              <div>
+                <strong style="color: #38bdf8; font-size: 0.85rem; display: block; margin-bottom: 4px;">1. Alcance Incluido (IN)</strong>
+                <p style="color: #94a3b8; font-size: 0.8rem;">Detalle exacto de los requisitos Must y Should Have que se entregarán. Ej: <em>"Módulo de autenticación con roles"</em>.</p>
+              </div>
+              <div style="background: rgba(239, 68, 68, 0.05); border-left: 2px solid #ef4444; padding-left: 12px;">
+                <strong style="color: #f87171; font-size: 0.85rem; display: block; margin-bottom: 4px;">2. Exclusiones (OUT)</strong>
+                <p style="color: #94a3b8; font-size: 0.8rem;">Lo que <strong>NO</strong> se construirá. Crucial para evitar conflictos y trabajar gratis. Ej: <em>"No incluye App Móvil ni inicio de sesión con Google"</em>.</p>
+              </div>
+              <div>
+                <strong style="color: #34d399; font-size: 0.85rem; display: block; margin-bottom: 4px;">3. Cronograma y Costos</strong>
+                <p style="color: #94a3b8; font-size: 0.8rem;">Hitos de entrega, presupuesto total y calendario de pagos asociados a los entregables.</p>
+              </div>
+              <div>
+                <strong style="color: #a855f7; font-size: 0.85rem; display: block; margin-bottom: 4px;">4. Control de Cambios</strong>
+                <p style="color: #94a3b8; font-size: 0.8rem;">Procedimiento sobre cómo se cobrará y evaluará si el cliente pide funcionalidades nuevas en el futuro.</p>
+              </div>
+            </div>
+            
+            <div style="margin-top: 20px; padding-top: 16px; border-top: 1px dashed rgba(255,255,255,0.1); text-align: right;">
+              <p style="color: #cbd5e1; font-size: 0.8rem; margin-bottom: 10px;"><em>Leído y aceptado por las partes:</em></p>
+              <div style="display: inline-block; width: 150px; border-bottom: 1px solid #64748b; margin-left: 20px; text-align: center;"><small style="color: #64748b;">Firma Cliente</small></div>
+              <div style="display: inline-block; width: 150px; border-bottom: 1px solid #64748b; margin-left: 20px; text-align: center;"><small style="color: #64748b;">Firma Líder Téc.</small></div>
+            </div>
+
+            <div style="margin-top: 32px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+              <details style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 16px; cursor: pointer;">
+                <summary style="color: #38bdf8; font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+                  <span>📋 Ver Ejemplo Completo de SOW (Caso: Control de Acceso)</span>
+                </summary>
+                <div style="margin-top: 16px; padding: 16px; background: rgba(0,0,0,0.2); border-radius: 6px; font-size: 0.85rem; color: #cbd5e1; line-height: 1.5;">
+                  <h5 style="color: #f8fafc; font-size: 1rem; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-bottom: 12px;">Documento de Alcance de Software (SOW)</h5>
+                  <p><strong>Proyecto:</strong> Sistema Integrado de Control de Acceso y Registro de Equipos</p>
+                  <p><strong>Cliente:</strong> Administración del Edificio Central</p>
+                  
+                  <h6 style="color: #60a5fa; margin-top: 16px; margin-bottom: 4px;">1. Alcance del Producto (IN)</h6>
+                  <ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 12px;">
+                    <li>Módulo de Autenticación con roles (Guarda, Administrador).</li>
+                    <li>Registro de ingreso de visitantes vinculados a su número de documento.</li>
+                    <li>Asignación y validación de seriales de equipos (Laptops) al visitante.</li>
+                    <li>Generación de código QR estático para validar salida.</li>
+                  </ul>
+
+                  <h6 style="color: #f87171; margin-top: 16px; margin-bottom: 4px;">2. Exclusiones del Alcance (OUT)</h6>
+                  <ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 12px;">
+                    <li>No se incluye aplicación móvil nativa (Android/iOS); el sistema será 100% web responsivo.</li>
+                    <li>No se incluye integración con talanqueras físicas o hardware de reconocimiento facial.</li>
+                    <li>No se desarrollará un módulo de nómina o control de horas para los guardas.</li>
+                  </ul>
+
+                  <h6 style="color: #34d399; margin-top: 16px; margin-bottom: 4px;">3. Tiempos y Costos (Presupuesto Base)</h6>
+                  <ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 12px;">
+                    <li><strong>Hito 1 (30%):</strong> Entrega del módulo de autenticación y base de datos (Semana 2) - $X.XXX</li>
+                    <li><strong>Hito 2 (40%):</strong> Entrega del registro de visitantes y equipos (Semana 5) - $X.XXX</li>
+                    <li><strong>Hito 3 (30%):</strong> Pruebas, despliegue y manual de usuario (Semana 7) - $X.XXX</li>
+                    <li><strong>Duración Estimada:</strong> 7 semanas a partir de la firma.</li>
+                  </ul>
+
+                  <h6 style="color: #a855f7; margin-top: 16px; margin-bottom: 4px;">4. Control de Cambios</h6>
+                  <p style="margin-bottom: 16px;">Cualquier solicitud de funcionalidad no listada en el punto 1 (IN) será evaluada por el líder técnico. Si impacta la arquitectura o toma más de 8 horas, generará un cobro adicional y ajustará las fechas de entrega.</p>
+                </div>
+              </details>
             </div>
           </div>
         </div>
