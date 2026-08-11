@@ -31,6 +31,9 @@
   const useCaseResult = document.querySelector("#use-case-result");
   const useCaseResultText = document.querySelector("#use-case-result-text");
   const useCaseFormStatus = document.querySelector("#use-case-form-status");
+  const loadStoryExampleButton = document.querySelector("#load-story-example");
+  const loadUseCaseExampleButton = document.querySelector("#load-use-case-example");
+  const clearAnalysisButton = document.querySelector("#clear-analysis");
 
   if (!storyRole || !storyAction || !storyBenefit || !bddDropzone) return;
 
@@ -198,7 +201,7 @@
       token.draggable = true;
       token.dataset.kind = block.kind;
       token.dataset.index = String(index);
-      token.title = "Arrastra para cambiar el orden o pulsa × para quitar";
+      token.title = "Usa ↑ y ↓, arrastra para cambiar el orden o pulsa × para quitar";
 
       const order = document.createElement("span");
       order.className = "token-order";
@@ -211,6 +214,27 @@
       const text = document.createElement("span");
       text.textContent = block.text.replace(/^Dado que |^Cuando |^Entonces /i, "");
 
+      const moveControls = document.createElement("span");
+      moveControls.className = "scenario-move-controls";
+
+      const moveUp = document.createElement("button");
+      moveUp.type = "button";
+      moveUp.className = "move-token";
+      moveUp.textContent = "↑";
+      moveUp.setAttribute("aria-label", `Mover bloque ${index + 1} arriba`);
+      moveUp.disabled = index === 0;
+      moveUp.addEventListener("click", () => moveBlock(index, -1));
+
+      const moveDown = document.createElement("button");
+      moveDown.type = "button";
+      moveDown.className = "move-token";
+      moveDown.textContent = "↓";
+      moveDown.setAttribute("aria-label", `Mover bloque ${index + 1} abajo`);
+      moveDown.disabled = index === bddBlocks.length - 1;
+      moveDown.addEventListener("click", () => moveBlock(index, 1));
+
+      moveControls.append(moveUp, moveDown);
+
       const removeButton = document.createElement("button");
       removeButton.type = "button";
       removeButton.className = "remove-token";
@@ -218,7 +242,7 @@
       removeButton.textContent = "×";
       removeButton.addEventListener("click", () => removeBlock(index));
 
-      token.append(order, kind, text, removeButton);
+      token.append(order, kind, text, moveControls, removeButton);
       token.addEventListener("dragstart", (event) => {
         draggedData = { source: "scenario", index };
         event.dataTransfer.effectAllowed = "move";
@@ -236,6 +260,12 @@
     const [movedBlock] = bddBlocks.splice(fromIndex, 1);
     bddBlocks.splice(toIndex, 0, movedBlock);
     renderBDD();
+  }
+
+  function moveBlock(index, delta) {
+    const targetIndex = index + delta;
+    if (targetIndex < 0 || targetIndex >= bddBlocks.length) return;
+    reorderBlock(index, targetIndex);
   }
 
   /**
@@ -366,7 +396,7 @@
       return;
     }
 
-    const artifact = `FICHA DE CASO DE USO\n\nID: ${data.get("useCaseId")}\nNOMBRE: ${data.get("useCaseName")}\nACTOR PRINCIPAL: ${data.get("useCaseActor")}\nHISTORIA / RF RELACIONADOS: ${data.get("useCaseLinks")}\n\nOBJETIVO OBSERVABLE\n${data.get("useCaseGoal")}\n\nPRECONDICIONES\n${data.get("useCasePreconditions")}\n\nFLUJO PRINCIPAL\n${mainFlow}\n\nALTERNATIVA O ERROR\n${data.get("useCaseAlternative")}\n\nPOSTCONDICIÓN Y EVIDENCIA\n${data.get("useCasePostcondition")}\n\nREVISIÓN ANTES DE CONSTRUIR\n[ ] Cada paso expresa comportamiento y no una tecnología específica\n[ ] Los escenarios BDD cubren éxito, alternativa, error y permiso\n[ ] Los datos, estados y reglas tienen fuente o pregunta abierta\n[ ] El actor confirma el resultado observable\n[ ] La ficha se relaciona con RF, RNF, historia, pruebas y backlog`;
+    const artifact = `FICHA DE CASO DE USO\n\nIDENTIFICADOR: ${data.get("useCaseId")}\nNOMBRE: ${data.get("useCaseName")}\nACTOR PRINCIPAL: ${data.get("useCaseActor")}\nHISTORIA DE USUARIO / REQUISITO FUNCIONAL RELACIONADOS: ${data.get("useCaseLinks")}\n\nOBJETIVO OBSERVABLE\n${data.get("useCaseGoal")}\n\nPRECONDICIONES\n${data.get("useCasePreconditions")}\n\nFLUJO PRINCIPAL\n${mainFlow}\n\nALTERNATIVA O ERROR\n${data.get("useCaseAlternative")}\n\nPOSTCONDICIÓN Y EVIDENCIA\n${data.get("useCasePostcondition")}\n\nREVISIÓN ANTES DE CONSTRUIR\n[ ] Cada paso expresa comportamiento y no una tecnología específica\n[ ] Los criterios de aceptación BDD cubren éxito, alternativa, error y permiso\n[ ] Los datos, estados y reglas tienen fuente o pregunta abierta\n[ ] El actor confirma el resultado observable\n[ ] La ficha se relaciona con Requisitos Funcionales, Requisitos No Funcionales, Historia de Usuario, pruebas y lista de trabajo pendiente`;
 
     useCaseResultText.textContent = artifact;
     useCaseResult.hidden = false;
@@ -380,6 +410,36 @@
       if (useCaseResult) useCaseResult.hidden = true;
       if (useCaseFormStatus) useCaseFormStatus.textContent = "";
     }, 0);
+  });
+
+  loadStoryExampleButton?.addEventListener("click", () => {
+    storyRole.value = "guarda";
+    storyAction.value = "consultar-ingreso-qr";
+    storyBenefit.value = "reducir-espera";
+    updateStoryPreview();
+    storyPreview?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+
+  loadUseCaseExampleButton?.addEventListener("click", () => {
+    if (!useCaseForm) return;
+    const example = {
+      useCaseId: "CU-03",
+      useCaseName: "Consultar ingreso por QR",
+      useCaseActor: "Guarda",
+      useCaseLinks: "HU-03 · RF-03 · CA-03",
+      useCaseGoal: "Permitir que el guarda decida si autoriza el ingreso con información vigente y autorizada.",
+      useCasePreconditions: "Sesión activa; permiso de consulta; QR disponible; registro de ingreso creado.",
+      useCaseMainFlow: "1. El guarda lee el código QR del visitante.\n2. El sistema verifica la vigencia y el permiso.\n3. El sistema muestra los datos autorizados y los equipos registrados.\n4. El guarda confirma o detiene el ingreso.\n5. El sistema registra la decisión.",
+      useCaseAlternative: "Si el QR está vencido, no existe o el guarda no tiene permiso, el sistema no muestra datos sensibles, informa la causa y ofrece el flujo manual autorizado.",
+      useCasePostcondition: "La decisión queda registrada con fecha, actor y resultado. Evidencia: respuesta visible y evento de auditoría."
+    };
+
+    Object.entries(example).forEach(([name, value]) => {
+      const field = useCaseForm.elements.namedItem(name);
+      if (field) field.value = value;
+    });
+    if (useCaseFormStatus) useCaseFormStatus.textContent = "Ejemplo cargado: revisa qué partes pertenecen a la evidencia y cuáles debes validar en tu proyecto.";
+    useCaseForm.querySelector('[name="useCaseGoal"]')?.focus();
   });
 
   /**
@@ -426,23 +486,47 @@
     const tipNode = document.createElement("p");
     tipNode.className = "analysis-tip";
     tipNode.textContent = tip;
-    analysisOutput.append(summary, checkList, tipNode);
+
+    const questions = document.createElement("div");
+    questions.className = "analysis-questions";
+    const questionsTitle = document.createElement("strong");
+    questionsTitle.textContent = "Preguntas para validar con el interesado";
+    questions.append(questionsTitle);
+    const questionsList = document.createElement("ul");
+    const pendingQuestions = checks.filter((check) => !check.good).map((check) => check.question);
+    const questionsToShow = pendingQuestions.length > 0 ? pendingQuestions : [
+      "¿Qué excepción o límite todavía no aparece en esta frase?",
+      "¿Qué evidencia usaría el actor para confirmar que el resultado es correcto?",
+    ];
+    questionsToShow.forEach((question) => {
+      const item = document.createElement("li");
+      item.textContent = question;
+      questionsList.append(item);
+    });
+    questions.append(questionsList);
+
+    analysisOutput.append(summary, checkList, questions, tipNode);
     analysisOutput.dataset.analyzedText = text;
+  }
+
+  function showAnalysisEmpty(message = "El análisis aparecerá aquí.") {
+    analysisOutput.replaceChildren();
+    const empty = document.createElement("div");
+    empty.className = "analysis-empty";
+    const icon = document.createElement("span");
+    icon.className = "scan-icon";
+    icon.textContent = "⌁";
+    const copy = document.createElement("p");
+    copy.textContent = message;
+    empty.append(icon, copy);
+    analysisOutput.append(empty);
+    analysisOutput.dataset.analyzedText = "";
   }
 
   function analyzeRequirement() {
     const text = rawRequirement?.value.trim() || "";
     if (!text) {
-      analysisOutput.replaceChildren();
-      const empty = document.createElement("div");
-      empty.className = "analysis-empty";
-      const icon = document.createElement("span");
-      icon.className = "scan-icon";
-      icon.textContent = "⌁";
-      const message = document.createElement("p");
-      message.textContent = "Escribe una frase antes de analizar.";
-      empty.append(icon, message);
-      analysisOutput.append(empty);
+      showAnalysisEmpty("Escribe una frase antes de analizar.");
       rawRequirement?.focus();
       return;
     }
@@ -455,10 +539,10 @@
     const hasObservableRule = /\b(dado que|cuando|entonces|debe|podrá|menos de|máximo|mínimo)\b/i.test(normalized);
 
     const checks = [
-      { label: "Actor", good: hasActor, detail: hasActor ? "está identificado." : "falta saber quién necesita la capacidad." },
-      { label: "Acción", good: specificAction && !ambiguousVerb, detail: ambiguousVerb ? "usa un verbo amplio; conviértelo en una acción observable." : specificAction ? "es concreta." : "falta un verbo que describa el comportamiento." },
-      { label: "Beneficio", good: hasBenefit, detail: hasBenefit ? "explica el para qué." : "falta el valor que obtiene el usuario." },
-      { label: "Verificación", good: hasObservableRule, detail: hasObservableRule ? "incluye una regla o condición comprobable." : "todavía no hay un resultado que se pueda comprobar." },
+      { label: "Actor", good: hasActor, detail: hasActor ? "está identificado." : "falta saber quién necesita la capacidad.", question: "¿Qué actor inicia la acción y quién recibe el resultado?" },
+      { label: "Acción", good: specificAction && !ambiguousVerb, detail: ambiguousVerb ? "usa un verbo amplio; conviértelo en una acción observable." : specificAction ? "es concreta." : "falta un verbo que describa el comportamiento.", question: "¿Qué acción concreta puede observarse, medirse o probarse?" },
+      { label: "Beneficio", good: hasBenefit, detail: hasBenefit ? "explica el para qué." : "falta el valor que obtiene el usuario.", question: "¿Qué resultado de negocio obtiene el actor y por qué importa?" },
+      { label: "Verificación", good: hasObservableRule, detail: hasObservableRule ? "incluye una regla o condición comprobable." : "todavía no hay un resultado que se pueda comprobar.", question: "¿Qué condición, regla y resultado observable demostrarían que funciona?" },
     ];
 
     const tip = checks.every((check) => check.good)
@@ -477,6 +561,11 @@
       analyzeRequirement();
     });
   });
+  clearAnalysisButton?.addEventListener("click", () => {
+    if (rawRequirement) rawRequirement.value = "";
+    showAnalysisEmpty();
+    rawRequirement?.focus();
+  });
 
   /**
    * El reto no solo revisa que haya una forma correcta: comprueba que el
@@ -489,20 +578,20 @@
 
     if (!storyResult.valid) issues.push("completa la Historia de Usuario");
     if (storyResult.valid) {
-      if (normalize(storyRole.value) !== "cliente") issues.push("usa el rol cliente");
-      if (normalize(storyAction.value) !== "comprar-producto") issues.push("define la acción comprar un producto");
-      if (normalize(storyBenefit.value) !== "confirmar-pedido") issues.push("expresa el beneficio confirmar mi pedido");
+      if (normalize(storyRole.value) !== "guarda") issues.push("usa el rol guarda");
+      if (normalize(storyAction.value) !== "consultar-ingreso-qr") issues.push("define la acción consultar un ingreso mediante su código QR");
+      if (normalize(storyBenefit.value) !== "reducir-espera") issues.push("expresa el beneficio reducir la espera y tomar una decisión trazable");
     }
 
     if (!bddResult.valid) {
       issues.push("construye un escenario Given / When / Then válido");
     } else {
-      const expectedIds = ["given-auth", "when-buy", "then-stock"];
+      const expectedIds = ["given-qr", "when-scan", "then-authorize"];
       const actualTexts = bddBlocks.map((block) => normalize(block.text));
       const expectedTexts = [
-        "dado que el cliente tiene una sesión activa",
-        "cuando confirma la compra",
-        "entonces se crea el pedido y disminuye el stock",
+        "dado que el guarda está autorizado y el ingreso tiene un qr vigente",
+        "cuando escanea el código qr del visitante",
+        "entonces se muestran los datos autorizados y la decisión queda registrada",
       ];
 
       expectedIds.forEach((expectedId, index) => {
@@ -523,7 +612,7 @@
     }
 
     challengeFeedback.className = "challenge-feedback is-success";
-    challengeFeedback.textContent = "Todo encaja: el requerimiento es específico y verificable.";
+    challengeFeedback.textContent = "Primer corte validado: la historia y el escenario BDD conservan el vínculo con el caso guía y ya pueden alimentar el caso de uso, las pruebas y el prototipo.";
     approvalPanel?.classList.add("is-visible");
     approvalPanel?.setAttribute("aria-hidden", "false");
     evaluateChallengeButton.disabled = true;

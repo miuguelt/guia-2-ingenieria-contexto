@@ -5,10 +5,10 @@
   },
   "guide": {
     "id": "adso-requisitos-guia-02-web-2026",
-    "title": "Guía 02 web - Requisitos funcionales, no funcionales y arquitectura de contexto",
+    "title": "Guía 02 web - Análisis de requerimientos y base documental del software",
     "format": "html",
     "language": "es-CO",
-    "version": "2.5",
+    "version": "3.2",
     "sourceDocument": "index.html"
   },
   "curricularAlignment": {
@@ -31,8 +31,44 @@
     "projectActivity": "Especificar y validar los requisitos del sistema de información."
   },
   "project": {
-    "challenge": "Transformar hallazgos ambiguos en requisitos claros, medibles, priorizados, trazables y verificables.",
-    "finalProduct": "Documento de análisis progresivo con evidencia y contexto, glosario y reglas, historias de usuario, catálogo RF/RNF derivados, escenarios BDD, casos de uso, priorización MoSCoW, trazabilidad, plan de pruebas, lienzo de construcción, modelo de datos candidato, mapa de componentes y backlog de cortes verticales.",
+    "challenge": "Guiar a un aprendiz sin conocimientos previos para transformar hallazgos ambiguos en requisitos claros, medibles, priorizados, trazables y verificables, sin depender de siglas sin explicar.",
+    "finalProduct": "Paquete mínimo de especificación listo para construcción: parte de un hallazgo validado de la Guía 1, desarrolla una historia priorizada de extremo a extremo y entrega contexto, comportamiento, pruebas, trazabilidad, datos, estados, responsabilidades, dependencias y una tarea con Definición de Listo para Iniciar para la Guía 3.",
+    "inputFromPreviousGuide": {
+      "guideId": "adso-requisitos-guia-01-web-2026",
+      "requiredArtifacts": [
+        {
+          "id": "G1-P01",
+          "name": "Dossier de caracterización",
+          "minimumFields": ["proceso y alcance", "fuente y fecha", "SIPOC", "flujo AS-IS"],
+          "usedIn": ["CTX-01", "CTX-02"]
+        },
+        {
+          "id": "G1-P02",
+          "name": "Matriz de hallazgos validados",
+          "minimumFields": ["identificador de evidencia", "dato observable", "fuentes trianguladas", "decisión", "estado"],
+          "usedIn": ["E-*", "HU-*", "RF-*", "RNF-*"]
+        },
+        {
+          "id": "G1-P03",
+          "name": "Candidatos del dominio",
+          "minimumFields": ["actores", "datos", "reglas", "eventos", "calidades esperadas"],
+          "usedIn": ["GLOS-*", "RN-*", "ROL-*", "modelo de datos candidato"]
+        },
+        {
+          "id": "G1-P04",
+          "name": "Preguntas abiertas y restricciones",
+          "minimumFields": ["pregunta", "impacto", "responsable de validar", "estado"],
+          "usedIn": ["CA-*", "PR-*", "riesgos", "decisiones pendientes"]
+        }
+      ],
+      "transferRule": "La Guía 2 recibe hallazgos y candidatos, no requisitos aprobados. Cada decisión nueva conserva el identificador de origen o se registra como pregunta abierta antes de derivar una solución."
+    },
+    "outputToNextGuide": {
+      "guideId": "adso-requisitos-guia-03-web-2026",
+      "name": "Paquete de entrada para prototipado y validación",
+      "requiredArtifacts": ["HU priorizada", "RF/RNF relacionados", "escenarios BDD", "caso de uso", "datos candidatos", "estados de interfaz", "criterios de prueba", "matriz de trazabilidad", "tarea con Definición de Listo para Iniciar", "preguntas de validación"],
+      "transferRule": "La Guía 3 prototipa y valida el comportamiento definido aquí; no debe inventar pantallas, estados o componentes que no tengan requisito, criterio o pregunta explícita."
+    },
     "checkpoints": [
       {
         "id": "G2-C1",
@@ -47,12 +83,17 @@
       {
         "id": "G2-C3",
         "evidence": "Especificación validada, trazabilidad, lienzo de construcción y backlog inicial.",
-        "criterion": "La necesidad puede seguirse desde la evidencia y el contexto hasta la historia, el RF/RNF, el criterio, la prueba, los datos y componentes candidatos y la tarea."
+        "criterion": "La necesidad puede seguirse desde la evidencia y el contexto hasta la historia, el RF/RNF, el criterio, la prueba, los datos, las responsabilidades y la tarea lista para iniciar."
       },
       {
         "id": "G2-C4",
         "evidence": "Ficha de caso de uso generada y revisada con escenarios alternativos.",
         "criterion": "El comportamiento, las precondiciones, las excepciones y los resultados observables quedan relacionados con RF, RNF, BDD y pruebas."
+      },
+      {
+        "id": "G2-C5",
+        "evidence": "Evidencia final integradora de cinco incrementos y paquete de transferencia a la Guía 3.",
+        "criterion": "Integra los productos en orden, demuestra una cadena completa desde la fuente hasta la tarea, registra la revisión y permite que diseño, desarrollo y pruebas continúen sin inventar comportamiento."
       }
     ]
   },
@@ -65,7 +106,7 @@
     },
     {
       "phase": "contextualization",
-      "activity": "Organizar hallazgos en contexto, glosario, reglas y restricciones; construir historias de usuario antes de detallar requisitos.",
+      "activity": "Comprender el mapa de documentos y el diccionario inicial; organizar hallazgos en contexto, glosario, reglas y restricciones; construir historias de usuario antes de detallar requisitos.",
       "hours": 8,
       "increment": "Contexto validado, glosario inicial e historias de usuario revisables."
     },
@@ -83,22 +124,38 @@
     }
   ],
   "evidence": {
-    "knowledge": ["Relación entre evidencia, contexto, historia de usuario, RF, RNF, reglas, restricciones y criterios verificables."],
-    "performance": ["Redacción progresiva, revisión por pares, priorización MoSCoW, validación con BDD y defensa de decisiones candidatas."],
-    "product": ["Especificación validada con evidencia, contexto, glosario, reglas, historias, RF/RNF, BDD, casos de uso, trazabilidad, plan de pruebas, modelo de datos candidato, mapa de componentes y backlog."]
+    "knowledge": ["Relación entre evidencia de la Guía 1, contexto, historia de usuario, Requisito Funcional, Requisito No Funcional, reglas, restricciones y criterios verificables."],
+    "performance": ["Construcción incremental de un corte vertical documentado, revisión por pares, priorización MoSCoW, validación con Desarrollo Guiado por Comportamiento y defensa de decisiones candidatas."],
+    "product": ["Paquete mínimo listo para construcción en el que un hallazgo de la Guía 1 puede seguirse hasta una historia priorizada, requisitos, criterios, pruebas, datos, responsabilidades y una tarea lista para prototipar, estimar y desarrollar en la Guía 3."]
+  },
+  "finalEvidence": {
+    "id": "GA2-220501093-AA1-EV02",
+    "title": "Especificación de requisitos de software y diseño inicial de arquitectura con criterios BDD",
+    "purpose": "Construir la especificación mínima y verificable de un corte vertical para que diseño, desarrollo y pruebas puedan continuar sin volver a levantar la misma información ni inventar comportamiento.",
+    "increments": [
+      {"id": "IN-01", "name": "Retomar la Guía 1", "output": "Contexto, alcance, fuentes, actores, hallazgos validados y preguntas abiertas."},
+      {"id": "IN-02", "name": "Organizar el dominio", "output": "Glosario, reglas, permisos, historias necesarias y una Historia de Usuario priorizada."},
+      {"id": "IN-03", "name": "Especificar el comportamiento", "output": "Requisitos funcionales y no funcionales necesarios, criterios BDD y caso de uso de la historia priorizada."},
+      {"id": "IN-04", "name": "Comprobar la coherencia", "output": "Matriz de trazabilidad, plan de pruebas y revisión con pares o interesado."},
+      {"id": "IN-05", "name": "Preparar construcción y transferencia", "output": "Ficha de construcción con datos, estados, responsabilidades, dependencias, riesgos y una tarea priorizada con Definición de Listo para Iniciar."}
+    ],
+    "minimumProduct": ["un corte vertical trazado desde la fuente hasta una tarea de construcción", "una Historia de Usuario priorizada, pequeña y valiosa", "los Requisitos Funcionales y No Funcionales necesarios para ejecutar y verificar esa historia", "criterios de éxito y situaciones no exitosas relevantes", "un caso de uso completo para la historia priorizada", "ficha de construcción con datos, estados, reglas, permisos, responsabilidades y dependencias", "pruebas con datos y condición de aprobación", "registro de validación, decisiones pendientes y versión del documento"],
+    "assessmentInstruments": ["rúbrica analítica de evidencia final", "lista de chequeo de trazabilidad", "guion de revisión con pares o interesado"]
   },
   "assessment": {
     "criteria": [
       "Formula RF singulares, claros, necesarios, factibles y verificables.",
       "Formula RNF con atributo, medida, umbral, condición y método de verificación.",
       "Construye una historia de usuario desde un hallazgo, identifica su valor y registra preguntas abiertas sin cerrar prematuramente la solución.",
-      "Deriva RF y RNF de una historia manteniendo la fuente, el propósito y la relación entre artefactos.",
+      "Deriva RF y RNF de una o varias historias manteniendo la fuente, el propósito, el alcance y la relación explícita entre artefactos; reconoce RNF transversales.",
       "Mantiene trazabilidad y registra decisiones de validación.",
-      "Distingue BDD como práctica, Gherkin como sintaxis y Cucumber como herramienta de automatización.",
+      "Usa primero el nombre completo de cada concepto y luego su sigla, y puede explicar con sus propias palabras qué representan HU, RF, RNF, BDD, INVEST, MoSCoW, CRUD, SOW y DoR.",
+      "Distingue Desarrollo Guiado por Comportamiento (BDD) como práctica, Gherkin como sintaxis y Cucumber como herramienta de automatización.",
       "Construye una ficha de caso de uso con flujo principal, alternativa, precondiciones, postcondición y evidencia.",
-      "Deriva datos, interfaz, lógica, seguridad y pruebas sin confundir candidatos de diseño con decisiones aprobadas."
+      "Deriva datos, interfaz, lógica, seguridad y pruebas sin confundir candidatos de diseño con decisiones aprobadas.",
+      "Entrega una tarea pequeña, estimable, trazable y comprobable que cumple la Definición de Listo para Iniciar."
     ],
-    "instruments": ["Lista de chequeo de calidad", "Rúbrica analítica de especificación", "Guía de validación con interesados"]
+    "instruments": ["Lista de chequeo de calidad", "Rúbrica analítica de especificación", "Rúbrica de evidencia final integradora", "Lista de chequeo de trazabilidad", "Guía de validación con interesados"]
   },
   "standardsBasis": [
     {
@@ -138,10 +195,13 @@
   "assumptions": [
     "Los requisitos y métricas son ejemplos didácticos y deben validarse antes de incorporarlos a un proyecto real.",
     "La clasificación RF/RNF no reemplaza la revisión con interesados ni las restricciones normativas aplicables.",
-    "El simulador BDD practica un escenario mínimo; una especificación real debe incluir tantos escenarios como reglas, alternativas, errores y límites relevantes."
+    "El simulador BDD practica un escenario mínimo; una especificación real debe incluir tantos escenarios como reglas, alternativas, errores y límites relevantes.",
+    "El diagrama de arquitectura es un apoyo opcional para aclarar responsabilidades o integraciones; no forma parte del producto mínimo salvo solicitud expresa del instructor.",
+    "Las siglas se conservan únicamente como identificadores de trazabilidad después de presentar y explicar su nombre completo.",
+    "La trazabilidad no es una relación uno a uno: una historia puede producir varios requisitos y un requisito no funcional puede afectar varias historias; el vínculo explícito vale más que compartir un número."
   ],
   "changeControl": {
-    "date": "2026-08-10",
-    "summary": "Se agrega mapa de base de conocimiento para teoría, ejercicios, formatos y evidencia; se completa el ejemplo SOW con precios aproximados en COP y se añade una ruta de entrega con control de calidad del PDF."
+    "date": "2026-08-11",
+    "summary": "Producto reformulado como paquete mínimo listo para construcción: una cadena completa, cantidades determinadas por el comportamiento, ficha de preparación y tarea con Definición de Listo para Iniciar. El diagrama de arquitectura se conserva como apoyo opcional y deja de ser requisito del producto."
   }
 }

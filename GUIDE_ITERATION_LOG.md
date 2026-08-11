@@ -1,5 +1,13 @@
 # Registro de iteraciones de la guía
 
+## 2026-08-11 - trazabilidad explícita y lenguaje para principiantes
+
+- Mejora aplicada: se aclaró que una Historia de Usuario expresa necesidad y valor, el Requisito Funcional expresa una capacidad del sistema y el criterio de aceptación explica cómo comprobarla.
+- Trazabilidad: se dejaron explícitas las relaciones `deriva_de`, `afecta`, `verifica` e `implementa`; se eliminó la idea de que compartir un número demuestra una relación.
+- Modelo de relación: una historia puede producir varios requisitos y un Requisito No Funcional puede afectar varias historias o ser transversal, conservando siempre su fuente, alcance y justificación.
+- Comprensión inicial: se añadieron explicaciones en lenguaje cotidiano, un ejemplo de requisito transversal y campos de relación en las plantillas de historia, RF, RNF, BDD, trazabilidad y construcción.
+- Revisión humana: el recorrido puede seguirse sin conocer previamente las siglas; cada relación técnica tiene una explicación breve antes de usarse en las plantillas.
+
 
 ## 2026-08-07 09:53 -05:00 - validated
 
@@ -43,3 +51,30 @@
 - C6 Portada institucional SENA: expandida con plantilla completa de campos (regional, ficha, programa, proyecto, aprendices, instructor, fecha).
 - Verificación: `node --check` en app.js, simulator.js y workshop.js — todos pasados; index.html: 1668 líneas.
 
+
+## 2026-08-11 16:32 -05:00 - validated
+
+- Iteración: adso-requisitos-guia-02-web-2026-20260811163200355
+- Estándar: 2.0.0
+- Resumen: Reestructuración integral para aprendices de primera vez: orientación, mapa de artefactos, diccionario de siglas, nombres completos antes de abreviaturas y producto final ordenado para la fase de análisis de requerimientos.
+- Evidencia: Test-DevBrainEducationalGuide -Strict: passed sin errores ni advertencias; Test-WebQuality: 0 errores; Validate-HtmlCodeBlocks: 0 hallazgos; node --check app.js, simulator.js y workshop.js: passed; Auditoría de 39 primeras apariciones: nombre completo antes de sigla; HTML: 153 identificadores únicos, sin anclas, archivos ni etiquetas faltantes; HTTP local: index, CSS y JavaScript 200
+- Retroalimentación: Las siglas aisladas creaban prerrequisitos ocultos para el aprendiz nuevo; El producto final debe crecer en el mismo orden que la ruta de aprendizaje
+- Reglas candidatas: Presentar nombre completo, sigla, definición y ejemplo antes de reutilizar una abreviatura técnica en una guía para principiantes
+
+## 2026-08-11 - auditoría de continuidad y evidencia final
+
+- Auditoría: se contrastó la entrada declarada por la Guía 1, el caso guía de la Guía 2, los simuladores, la entrega PDF y la transferencia prevista a la Guía 3.
+- Brecha corregida: el reto final usaba un caso de compras desconectado del caso “Control de ingreso de equipos”. El laboratorio y el checkpoint final ahora usan el hallazgo de observación, el rol guarda, la consulta por QR y el resultado de auditoría del mismo caso.
+- Mejora aplicada: se formalizó el contrato Guía 1 → Guía 2 con campos mínimos, estados y transformaciones; se conserva la regla de que un candidato no es un requisito aprobado.
+- Evidencia final: se reorganizó como práctica integradora de cinco incrementos: retomar evidencia, organizar dominio, especificar comportamiento, comprobar coherencia y preparar construcción/transferencia.
+- Resultado esperado: una cadena completa `E-* → CTX-* → HU-* → RF/RNF-* → CA-* → PR-* → BL-*`, con un primer corte vertical documentado y un paquete reutilizable por la Guía 3.
+- Decisión pedagógica: el checkpoint interactivo valida solo el incremento 03; la evaluación de la evidencia final corresponde al documento consolidado y a la revisión del instructor, pares o interesado.
+
+## 2026-08-11 - producto mínimo listo para construcción
+
+- Problema corregido: el diagrama de arquitectura aparecía como requisito del PDF aunque no siempre aporta información adicional para iniciar el corte; además, las cantidades fijas de historias y requisitos privilegiaban volumen sobre coherencia.
+- Apoyo A-01: la guía del diagrama ahora parte de una historia priorizada, reglas, datos, criterios y dependencias; modela responsabilidades y flujo, distingue decisiones validadas de candidatas e incluye ejemplo y control de calidad. Se declara opcional.
+- Producto reformulado: paquete mínimo de especificación centrado en un corte vertical con contexto, lenguaje, comportamiento, trazabilidad, pruebas, ficha de construcción, tarea con Definición de Listo para Iniciar y registro de validación.
+- Regla de suficiencia: una cadena `E → HU → RF/RNF → CA → PR → BL` completa y verificable reemplaza los mínimos arbitrarios de tres historias, tres RF y dos RNF. Se documentan tantos elementos como el comportamiento y sus riesgos necesiten.
+- Prueba de utilidad: el cierre explicita qué información reutilizan diseño, desarrollo y pruebas, enlaza cada parte del producto con la sección e instrumento que permite producirla e incluye una estructura completa y copiable del PDF.
+- Verificación: contrato educativo estricto aprobado sin errores ni advertencias; calidad web con 0 errores; bloques de código HTML con 0 hallazgos; JSON y JavaScript válidos; 166 identificadores únicos y 13 anclas internas resueltas; HTML, CSS y JavaScript respondieron HTTP 200.

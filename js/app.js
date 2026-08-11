@@ -169,6 +169,6 @@
   // El simulador emite este evento cuando el reto final se aprueba.
   document.addEventListener("guide:completed", () => {
     const labStatus = document.querySelector("#lab-status-text");
-    if (labStatus) labStatus.textContent = "Especificación clara · 100%";
+    if (labStatus) labStatus.textContent = "Checkpoint validado · incremento 03";
   });
 })();
