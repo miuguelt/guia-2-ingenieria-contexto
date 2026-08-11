@@ -8,7 +8,7 @@
     "title": "Guía 02 web - Requisitos funcionales, no funcionales y arquitectura de contexto",
     "format": "html",
     "language": "es-CO",
-    "version": "2.4",
+    "version": "2.5",
     "sourceDocument": "index.html"
   },
   "curricularAlignment": {
@@ -142,6 +142,6 @@
   ],
   "changeControl": {
     "date": "2026-08-10",
-    "summary": "Se reorganiza la ruta para enseñar evidencia → contexto → historia → RF/RNF → BDD → trazabilidad → construcción; se actualiza el generador de paquetes, la documentación de artefactos y la base de referencia ISO/IEC/IEEE 29148 e ISO/IEC 25010."
+    "summary": "Se agrega mapa de base de conocimiento para teoría, ejercicios, formatos y evidencia; se completa el ejemplo SOW con precios aproximados en COP y se añade una ruta de entrega con control de calidad del PDF."
   }
 }

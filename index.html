@@ -30,6 +30,7 @@
         <a href="#construccion" data-scroll>Construcción</a>
         <a href="#arquitectura" data-scroll>Arquitectura</a>
         <a href="#desafio" data-scroll>Desafío</a>
+        <a href="#cierre" data-scroll>Entregable</a>
       </nav>
 
       <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir navegación">
@@ -552,11 +553,16 @@
 
                   <h6 style="color: #34d399; margin-top: 16px; margin-bottom: 4px;">3. Tiempos y Costos (Presupuesto Base)</h6>
                   <ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 12px;">
-                    <li><strong>Hito 1 (30%):</strong> Entrega del módulo de autenticación y base de datos (Semana 2) - $X.XXX</li>
-                    <li><strong>Hito 2 (40%):</strong> Entrega del registro de visitantes y equipos (Semana 5) - $X.XXX</li>
-                    <li><strong>Hito 3 (30%):</strong> Pruebas, despliegue y manual de usuario (Semana 7) - $X.XXX</li>
+                    <li><strong>Hito 1 (30%):</strong> Entrega del módulo de autenticación y base de datos (Semana 2) — <strong>COP 450.000</strong></li>
+                    <li><strong>Hito 2 (40%):</strong> Entrega del registro de visitantes y equipos (Semana 5) — <strong>COP 600.000</strong></li>
+                    <li><strong>Hito 3 (30%):</strong> Pruebas, despliegue y manual de usuario (Semana 7) — <strong>COP 450.000</strong></li>
+                    <li><strong>Total estimado del alcance:</strong> <strong>COP 1.500.000</strong> (valor académico aproximado, sujeto a alcance y validación).</li>
                     <li><strong>Duración Estimada:</strong> 7 semanas a partir de la firma.</li>
                   </ul>
+                  <div class="budget-note" role="note">
+                    <strong>Gastos operativos opcionales para presupuestar:</strong>
+                    dominio COP 60.000–120.000/año; hosting o VPS COP 50.000–180.000/mes; certificado SSL COP 0 si se usa Let's Encrypt; mantenimiento COP 200.000–400.000/mes. Son rangos didácticos en pesos colombianos y deben cotizarse antes de contratar.
+                  </div>
 
                   <h6 style="color: #a855f7; margin-top: 16px; margin-bottom: 4px;">4. Control de Cambios</h6>
                   <p style="margin-bottom: 16px;">Cualquier solicitud de funcionalidad no listada en el punto 1 (IN) será evaluada por el líder técnico. Si impacta la arquitectura o toma más de 8 horas, generará un cobro adicional y ajustará las fechas de entrega.</p>
@@ -1693,6 +1699,42 @@ No inventes secretos; justifica cada decisión.</code></pre><p class="prompt-war
           En la metodología de <strong>Formación por Proyectos del SENA</strong>, la especificación de requisitos y la toma de decisiones arquitectónicas son los pilares del diseño técnico. Mediante el recorrido completo por esta guía web (análisis de historias de usuario, simulador BDD, detector de ambigüedad y matriz de arquitectura), has formalizado los requisitos fundamentales para tu <strong>Proyecto Formativo Core</strong>.
         </p>
 
+        <div class="knowledge-base" aria-labelledby="knowledge-base-title">
+          <div class="knowledge-base-heading">
+            <div>
+              <p class="overline">Mapa de estudio y producción</p>
+              <h3 id="knowledge-base-title">La base de conocimiento está organizada en cuatro capas</h3>
+            </div>
+            <p>Usa esta secuencia para saber qué leer, qué practicar y qué evidencia guardar. No entregues pantallazos sueltos: cada resultado debe quedar dentro del PDF técnico.</p>
+          </div>
+          <div class="knowledge-base-grid">
+            <a class="knowledge-card" href="#fundamentos" data-scroll>
+              <span class="knowledge-card-number">01 · TEORÍA</span>
+              <strong>Entiende los conceptos</strong>
+              <span>Contexto, actores, historias, RF, RNF, BDD, arquitectura, datos y trazabilidad.</span>
+              <small>Ir a fundamentos y ruta →</small>
+            </a>
+            <a class="knowledge-card" href="#instrumentos" data-scroll>
+              <span class="knowledge-card-number">02 · FORMATOS</span>
+              <strong>Copia las plantillas</strong>
+              <span>I-00 a I-08: glosario, HU, catálogo, RNF, BDD, matriz, pruebas, construcción y backlog.</span>
+              <small>Ir a instrumentos →</small>
+            </a>
+            <a class="knowledge-card" href="#laboratorio" data-scroll>
+              <span class="knowledge-card-number">03 · EJERCICIOS</span>
+              <strong>Construye y valida</strong>
+              <span>Practica con los retos guiados, el Constructor A/B, el caso de uso y el detector de ambigüedad.</span>
+              <small>Ir al laboratorio →</small>
+            </a>
+            <a class="knowledge-card" href="#desafio" data-scroll>
+              <span class="knowledge-card-number">04 · EVIDENCIA</span>
+              <strong>Prepara la entrega</strong>
+              <span>Resuelve el reto final, revisa la trazabilidad y verifica que el PDF tenga todos los capítulos.</span>
+              <small>Ir al reto final →</small>
+            </a>
+          </div>
+        </div>
+
         <div class="evidence-box" style="width: 100%; padding: 1.75rem; background: var(--surface-muted, #f1f5f9); border-radius: 8px; border: 1px solid var(--border-color, #e2e8f0);">
           <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
             <span style="font-size: 1.25rem;">🛠️</span>
@@ -1775,6 +1817,44 @@ FECHA DE ENTREGA
             <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--primary, #0055ff);">✅</span> <div><strong>Backlog de cortes verticales:</strong> Tabla priorizada con DoR, tamaño estimado y sprint candidato para cada historia. Usa el instrumento <a href="#construccion" data-scroll style="color:inherit;">I-07</a>.</div></li>
             <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--primary, #0055ff);">✅</span> <div><strong>Evidencia del Recorrido Web:</strong> Captura de pantalla legible del panel verde "Especificación clara (100%)" que aparece al superar el Reto Final de esta guía.</div></li>
           </ul>
+
+          <div class="delivery-route" aria-labelledby="delivery-route-title">
+            <div class="delivery-route-heading">
+              <div>
+                <p class="overline">Ruta mínima del aprendiz</p>
+                <h3 id="delivery-route-title">Qué hacer en orden para producir el PDF</h3>
+              </div>
+              <span class="delivery-route-badge">6 estaciones · 1 producto</span>
+            </div>
+            <div class="delivery-table-wrap" role="region" aria-label="Ruta de estudio, ejercicio y evidencia de entrega" tabindex="0">
+              <table class="delivery-table">
+                <thead><tr><th>Paso</th><th>Estudia y revisa</th><th>Ejercicio en la web</th><th>Guarda en el PDF</th></tr></thead>
+                <tbody>
+                  <tr><td><span class="delivery-step">01</span>Contextualizar</td><td><a href="#contexto" data-scroll>Contexto y fuentes</a></td><td>Completa la cadena evidencia → rol → historia.</td><td>Contexto, fuentes, preguntas abiertas y alcance.</td></tr>
+                  <tr><td><span class="delivery-step">02</span>Organizar</td><td><a href="#instrumentos" data-scroll>I-00 e I-01</a></td><td>Resuelve los retos de glosario e historia INVEST.</td><td>Glosario, reglas de negocio e historias de usuario.</td></tr>
+                  <tr><td><span class="delivery-step">03</span>Especificar</td><td><a href="#requisitos" data-scroll>RF, RNF y BDD</a></td><td>Deriva requisitos del mismo caso y arma escenarios.</td><td>Catálogo RF/RNF, prioridades y criterios de aceptación.</td></tr>
+                  <tr><td><span class="delivery-step">04</span>Validar</td><td><a href="#laboratorio" data-scroll>Laboratorio</a></td><td>Genera caso de uso, plan de pruebas y trazabilidad.</td><td>CU, matriz evidencia → prueba y resultados esperados.</td></tr>
+                  <tr><td><span class="delivery-step">05</span>Diseñar</td><td><a href="#construccion" data-scroll>Construcción y arquitectura</a></td><td>Completa el lienzo y el backlog de cortes verticales.</td><td>Diagrama, stack justificado, datos candidatos y backlog.</td></tr>
+                  <tr><td><span class="delivery-step">06</span>Entregar</td><td><a href="#desafio" data-scroll>Reto final y checklist</a></td><td>Obtén “Especificación clara · 100%” y revisa el paquete.</td><td>PDF final, nomenclatura correcta y evidencia legible.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="preflight-check" role="note" aria-labelledby="preflight-title">
+            <div>
+              <p class="overline">Antes de subir</p>
+              <h3 id="preflight-title">Control de calidad del producto entregable</h3>
+            </div>
+            <ul>
+              <li>Todos los capítulos tienen nombre del proyecto, versión, fecha y responsables.</li>
+              <li>Cada HU, RF, RNF, criterio BDD y prueba tiene ID y vínculo trazable.</li>
+              <li>Los RF tienen entrada, regla, salida y excepción; los RNF tienen medida, umbral y método.</li>
+              <li>El diagrama de arquitectura explica capas, responsabilidades, tecnología y RNF relacionado.</li>
+              <li>No quedan marcadores como <code>[completar]</code>, precios pendientes ni decisiones sin fuente o pregunta abierta.</li>
+              <li>El archivo se exporta a PDF, se abre correctamente y usa la nomenclatura solicitada por el SENA.</li>
+            </ul>
+          </div>
 
           <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
             <span style="font-size: 1.25rem;">📤</span>
