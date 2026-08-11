@@ -8,7 +8,7 @@
     "title": "Guía 02 web - Requisitos funcionales, no funcionales y arquitectura de contexto",
     "format": "html",
     "language": "es-CO",
-    "version": "2.2",
+    "version": "2.4",
     "sourceDocument": "index.html"
   },
   "curricularAlignment": {
@@ -32,22 +32,27 @@
   },
   "project": {
     "challenge": "Transformar hallazgos ambiguos en requisitos claros, medibles, priorizados, trazables y verificables.",
-    "finalProduct": "Especificación breve con catálogo RF/RNF, historias de usuario, criterios BDD, priorización MoSCoW, trazabilidad, lienzo de construcción, modelo de datos candidato, mapa de componentes y backlog de cortes verticales.",
+    "finalProduct": "Documento de análisis progresivo con evidencia y contexto, glosario y reglas, historias de usuario, catálogo RF/RNF derivados, escenarios BDD, casos de uso, priorización MoSCoW, trazabilidad, plan de pruebas, lienzo de construcción, modelo de datos candidato, mapa de componentes y backlog de cortes verticales.",
     "checkpoints": [
       {
         "id": "G2-C1",
-        "evidence": "Taller de clasificación y corrección de enunciados.",
-        "criterion": "Diferencia capacidad, calidad, regla de negocio y restricción con justificación."
+        "evidence": "Taller de clasificación, contextualización y corrección de enunciados.",
+        "criterion": "Diferencia hallazgo, contexto, capacidad, calidad, regla de negocio y restricción con justificación."
       },
       {
         "id": "G2-C2",
-        "evidence": "Catálogo RF/RNF, historias y escenarios BDD priorizados.",
-        "criterion": "Cada requisito tiene fuente, condición, resultado observable, medida o criterio de aceptación."
+        "evidence": "Historias, catálogo RF/RNF y escenarios BDD derivados del mismo caso.",
+        "criterion": "Cada artefacto conserva la fuente y el vínculo con el anterior; RF tiene capacidad y salida observable, RNF tiene medida y umbral, y BDD tiene criterio de aceptación."
       },
       {
         "id": "G2-C3",
         "evidence": "Especificación validada, trazabilidad, lienzo de construcción y backlog inicial.",
-        "criterion": "La necesidad puede seguirse hasta el requisito, la historia, el criterio, la prueba, los datos y componentes candidatos y la tarea."
+        "criterion": "La necesidad puede seguirse desde la evidencia y el contexto hasta la historia, el RF/RNF, el criterio, la prueba, los datos y componentes candidatos y la tarea."
+      },
+      {
+        "id": "G2-C4",
+        "evidence": "Ficha de caso de uso generada y revisada con escenarios alternativos.",
+        "criterion": "El comportamiento, las precondiciones, las excepciones y los resultados observables quedan relacionados con RF, RNF, BDD y pruebas."
       }
     ]
   },
@@ -60,37 +65,63 @@
     },
     {
       "phase": "contextualization",
-      "activity": "Clasificar, medir y corregir requisitos con ejemplos y contraejemplos.",
+      "activity": "Organizar hallazgos en contexto, glosario, reglas y restricciones; construir historias de usuario antes de detallar requisitos.",
       "hours": 8,
-      "increment": "Catálogo inicial RF/RNF y glosario de calidad."
+      "increment": "Contexto validado, glosario inicial e historias de usuario revisables."
     },
     {
       "phase": "appropriation",
-      "activity": "Construir historias, criterios BDD, priorización y trazabilidad del caso base.",
+      "activity": "Derivar RF y RNF desde las historias, construir criterios BDD, priorizar, probar y mantener trazabilidad del caso base.",
       "hours": 14,
       "increment": "Especificación versión 0.9 revisada por pares."
     },
     {
       "phase": "transfer",
-      "activity": "Aplicar el taller web al proyecto propio, derivar un corte vertical y validar datos, responsabilidades y pruebas con un interesado.",
+      "activity": "Aplicar la cadena completa al proyecto propio, validar el paquete con un interesado, construir la ficha de caso de uso y derivar un corte vertical sin adelantar decisiones técnicas.",
       "hours": 8,
       "increment": "Especificación versión 1.0, lienzo de construcción y backlog inicial."
     }
   ],
   "evidence": {
-    "knowledge": ["Clasificación argumentada de RF, RNF, reglas y restricciones."],
-    "performance": ["Redacción, revisión por pares, priorización MoSCoW y validación con BDD."],
-    "product": ["Especificación validada con RF/RNF, historias, criterios, trazabilidad, modelo de datos candidato, mapa de componentes y backlog."]
+    "knowledge": ["Relación entre evidencia, contexto, historia de usuario, RF, RNF, reglas, restricciones y criterios verificables."],
+    "performance": ["Redacción progresiva, revisión por pares, priorización MoSCoW, validación con BDD y defensa de decisiones candidatas."],
+    "product": ["Especificación validada con evidencia, contexto, glosario, reglas, historias, RF/RNF, BDD, casos de uso, trazabilidad, plan de pruebas, modelo de datos candidato, mapa de componentes y backlog."]
   },
   "assessment": {
     "criteria": [
       "Formula RF singulares, claros, necesarios, factibles y verificables.",
       "Formula RNF con atributo, medida, umbral, condición y método de verificación.",
+      "Construye una historia de usuario desde un hallazgo, identifica su valor y registra preguntas abiertas sin cerrar prematuramente la solución.",
+      "Deriva RF y RNF de una historia manteniendo la fuente, el propósito y la relación entre artefactos.",
       "Mantiene trazabilidad y registra decisiones de validación.",
+      "Distingue BDD como práctica, Gherkin como sintaxis y Cucumber como herramienta de automatización.",
+      "Construye una ficha de caso de uso con flujo principal, alternativa, precondiciones, postcondición y evidencia.",
       "Deriva datos, interfaz, lógica, seguridad y pruebas sin confundir candidatos de diseño con decisiones aprobadas."
     ],
     "instruments": ["Lista de chequeo de calidad", "Rúbrica analítica de especificación", "Guía de validación con interesados"]
   },
+  "standardsBasis": [
+    {
+      "reference": "ISO/IEC/IEEE 29148:2018",
+      "use": "Orientar el proceso y el contenido de los artefactos de ingeniería de requisitos, incluyendo fuentes, atributos, verificación, validación y trazabilidad.",
+      "status": "Referencia normativa; confirmar la edición exigida por la organización o el proyecto."
+    },
+    {
+      "reference": "ISO/IEC 25010:2023",
+      "use": "Seleccionar características de calidad y convertirlas en medidas, umbrales y métodos de evaluación para RNF.",
+      "status": "Modelo de calidad; no reemplaza la selección de métricas con los interesados."
+    },
+    {
+      "reference": "Gherkin Reference y práctica BDD",
+      "use": "Describir ejemplos de comportamiento con una sintaxis legible y conectarlos con pruebas cuando el equipo lo decida.",
+      "status": "Práctica y sintaxis complementarias; no son una norma ISO."
+    },
+    {
+      "reference": "INVEST y MoSCoW",
+      "use": "Revisar la calidad negociable de las historias y priorizar el alcance inicial.",
+      "status": "Heurísticas de trabajo; deben adaptarse al contexto."
+    }
+  ],
   "duration": {
     "totalHours": 32
   },
@@ -100,14 +131,17 @@
     "SENA. Metodología para aplicar el aprendizaje por proyectos, 2023. https://repositorio.sena.edu.co/handle/11404/8544",
     "ISO/IEC/IEEE 29148:2018. Requirements engineering. https://www.iso.org/standard/72089.html",
     "ISO/IEC 25010:2023. Product quality model. https://www.iso.org/standard/78176.html",
-    "Cucumber. Gherkin Reference. https://cucumber.io/docs/gherkin/reference/"
+    "Cucumber. Gherkin Reference. https://cucumber.io/docs/gherkin/reference/",
+    "Dan North. Introducing BDD. https://dannorth.net/blog/introducing-bdd/",
+    "Agile Alliance. Behavior-Driven Development. https://agilealliance.org/glossary/bdd/"
   ],
   "assumptions": [
     "Los requisitos y métricas son ejemplos didácticos y deben validarse antes de incorporarlos a un proyecto real.",
-    "La clasificación RF/RNF no reemplaza la revisión con interesados ni las restricciones normativas aplicables."
+    "La clasificación RF/RNF no reemplaza la revisión con interesados ni las restricciones normativas aplicables.",
+    "El simulador BDD practica un escenario mínimo; una especificación real debe incluir tantos escenarios como reglas, alternativas, errores y límites relevantes."
   ],
   "changeControl": {
-    "date": "2026-08-07",
-    "summary": "Incorporación del puente desde historias y requisitos hacia modelo de datos candidato, responsabilidades del software, pruebas y cortes verticales."
+    "date": "2026-08-10",
+    "summary": "Se reorganiza la ruta para enseñar evidencia → contexto → historia → RF/RNF → BDD → trazabilidad → construcción; se actualiza el generador de paquetes, la documentación de artefactos y la base de referencia ISO/IEC/IEEE 29148 e ISO/IEC 25010."
   }
 }

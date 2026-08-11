@@ -27,6 +27,10 @@
   const rawRequirement = document.querySelector("#raw-requirement");
   const analyzeRequirementButton = document.querySelector("#analyze-requirement");
   const analysisOutput = document.querySelector("#analysis-output");
+  const useCaseForm = document.querySelector("#use-case-form");
+  const useCaseResult = document.querySelector("#use-case-result");
+  const useCaseResultText = document.querySelector("#use-case-result-text");
+  const useCaseFormStatus = document.querySelector("#use-case-form-status");
 
   if (!storyRole || !storyAction || !storyBenefit || !bddDropzone) return;
 
@@ -324,6 +328,58 @@
   document.querySelector("#validate-bdd")?.addEventListener("click", () => {
     const result = validateBDD();
     if (!result.valid) bddDropzone.focus();
+  });
+
+  /**
+   * Genera una ficha de caso de uso a partir de decisiones conversadas.
+   * La salida es deliberadamente texto plano: puede copiarse al documento de
+   * análisis y deja claro qué partes todavía deben validarse con el cliente.
+   */
+  function buildUseCaseArtifact(event) {
+    event.preventDefault();
+    if (!useCaseForm || !useCaseResult || !useCaseResultText) return;
+
+    const data = new FormData(useCaseForm);
+    const fields = [
+      "useCaseId",
+      "useCaseName",
+      "useCaseActor",
+      "useCaseLinks",
+      "useCaseGoal",
+      "useCasePreconditions",
+      "useCaseMainFlow",
+      "useCaseAlternative",
+      "useCasePostcondition",
+    ];
+    const emptyFields = fields.filter((field) => !String(data.get(field) || "").trim());
+    const mainFlow = String(data.get("useCaseMainFlow") || "").trim();
+    if (emptyFields.length > 0) {
+      if (useCaseFormStatus) useCaseFormStatus.textContent = "Completa todos los campos para construir una ficha revisable.";
+      const firstEmpty = useCaseForm.querySelector(`[name="${emptyFields[0]}"]`);
+      firstEmpty?.focus();
+      return;
+    }
+
+    if (mainFlow.split(/\n+/).filter(Boolean).length < 2) {
+      if (useCaseFormStatus) useCaseFormStatus.textContent = "El flujo principal debe tener al menos dos pasos observables.";
+      useCaseForm.querySelector('[name="useCaseMainFlow"]')?.focus();
+      return;
+    }
+
+    const artifact = `FICHA DE CASO DE USO\n\nID: ${data.get("useCaseId")}\nNOMBRE: ${data.get("useCaseName")}\nACTOR PRINCIPAL: ${data.get("useCaseActor")}\nHISTORIA / RF RELACIONADOS: ${data.get("useCaseLinks")}\n\nOBJETIVO OBSERVABLE\n${data.get("useCaseGoal")}\n\nPRECONDICIONES\n${data.get("useCasePreconditions")}\n\nFLUJO PRINCIPAL\n${mainFlow}\n\nALTERNATIVA O ERROR\n${data.get("useCaseAlternative")}\n\nPOSTCONDICIÓN Y EVIDENCIA\n${data.get("useCasePostcondition")}\n\nREVISIÓN ANTES DE CONSTRUIR\n[ ] Cada paso expresa comportamiento y no una tecnología específica\n[ ] Los escenarios BDD cubren éxito, alternativa, error y permiso\n[ ] Los datos, estados y reglas tienen fuente o pregunta abierta\n[ ] El actor confirma el resultado observable\n[ ] La ficha se relaciona con RF, RNF, historia, pruebas y backlog`;
+
+    useCaseResultText.textContent = artifact;
+    useCaseResult.hidden = false;
+    if (useCaseFormStatus) useCaseFormStatus.textContent = "Ficha generada: revísala con el interesado antes de pasar a diseño.";
+    useCaseResult.focus();
+  }
+
+  useCaseForm?.addEventListener("submit", buildUseCaseArtifact);
+  useCaseForm?.addEventListener("reset", () => {
+    window.setTimeout(() => {
+      if (useCaseResult) useCaseResult.hidden = true;
+      if (useCaseFormStatus) useCaseFormStatus.textContent = "";
+    }, 0);
   });
 
   /**

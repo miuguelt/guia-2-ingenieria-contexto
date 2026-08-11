@@ -7,14 +7,14 @@ Ayudar al aprendiz ADSO a convertir la evidencia recolectada en una especificaci
 ## Usuario y trabajo principal
 
 - Usuario primario: aprendiz SENA de ADSO en fase de análisis.
-- Trabajo principal: formular y relacionar RF, RNF, historia de usuario, criterios BDD, prioridad y prueba.
+- Trabajo principal: convertir hallazgos en contexto, historias de usuario, RF, RNF, criterios BDD, prioridad, pruebas y decisiones de construcción relacionadas.
 - Resultado observable: paquete de especificación y lienzo de construcción con datos, interfaz, lógica, seguridad y pruebas candidatas para un corte vertical.
 
 ## Dirección visual y de interacción
 
 - Conservar la identidad visual, tema, navegación, simuladores y sección de arquitectura existentes.
 - Dirección: técnica, clara, trazable y orientada a decisiones verificables.
-- Ruta visible: **hallazgo → RF/RNF → historia → BDD → prioridad → prueba → backlog → datos y componentes → corte vertical**.
+- Ruta visible: **hallazgo → contexto → historia → RF → RNF → BDD → trazabilidad → prioridad/prueba → backlog → datos y componentes → corte vertical**.
 - Controles nativos, etiquetas persistentes, foco visible, validación accesible y mensajes `aria-live`.
 - Mobile-first desde 320 px, crecimiento progresivo con `minmax()` y tipografía fluida con `clamp()`.
 
@@ -26,8 +26,9 @@ Ayudar al aprendiz ADSO a convertir la evidencia recolectada en una especificaci
 
 ## Criterios de éxito
 
-- El aprendiz distingue capacidad funcional, calidad medible, regla de negocio y restricción.
+- El aprendiz distingue hallazgo, contexto, historia de usuario, capacidad funcional, calidad medible, regla de negocio y restricción.
 - Cada instrumento presenta un ejemplo diligenciado y una plantilla reutilizable.
-- El taller genera una cadena coherente y copiable desde la evidencia hasta una tarea de backlog.
+- El taller genera una cadena progresiva y copiable desde la evidencia hasta una tarea de backlog, sin saltar directamente de un hallazgo a una solución técnica.
 - Una historia priorizada se deriva en conceptos persistentes, relaciones, estados de interfaz, caso de uso, permisos y pruebas.
 - La página no presenta una arquitectura o tecnología como solución antes de justificarla con requisitos.
+- La documentación declara sus bases de referencia: ISO/IEC/IEEE 29148:2018 para ingeniería de requisitos, ISO/IEC 25010:2023 para calidad y Gherkin/BDD como práctica complementaria.
