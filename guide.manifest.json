@@ -8,7 +8,7 @@
     "title": "Guía 02 web - Análisis de requerimientos y base documental del software",
     "format": "html",
     "language": "es-CO",
-    "version": "3.2",
+    "version": "3.3",
     "sourceDocument": "index.html"
   },
   "curricularAlignment": {
@@ -32,7 +32,7 @@
   },
   "project": {
     "challenge": "Guiar a un aprendiz sin conocimientos previos para transformar hallazgos ambiguos en requisitos claros, medibles, priorizados, trazables y verificables, sin depender de siglas sin explicar.",
-    "finalProduct": "Paquete mínimo de especificación listo para construcción: parte de un hallazgo validado de la Guía 1, desarrolla una historia priorizada de extremo a extremo y entrega contexto, comportamiento, pruebas, trazabilidad, datos, estados, responsabilidades, dependencias y una tarea con Definición de Listo para Iniciar para la Guía 3.",
+    "finalProduct": "Paquete mínimo de especificación listo para prototipado: parte de un hallazgo validado de la Guía 1, desarrolla una historia priorizada de extremo a extremo y entrega contexto, comportamiento, pruebas, trazabilidad, datos, estados, responsabilidades, dependencias, bitácora humano–IA y una tarea con Definición de Listo para Iniciar para la Guía 3.",
     "inputFromPreviousGuide": {
       "guideId": "adso-requisitos-guia-01-web-2026",
       "requiredArtifacts": [
@@ -59,6 +59,12 @@
           "name": "Preguntas abiertas y restricciones",
           "minimumFields": ["pregunta", "impacto", "responsable de validar", "estado"],
           "usedIn": ["CA-*", "PR-*", "riesgos", "decisiones pendientes"]
+        },
+        {
+          "id": "G1-P05",
+          "name": "Bitácora humano–IA",
+          "minimumFields": ["uso o no uso", "datos protegidos", "salida", "verificación", "riesgos", "decisión humana"],
+          "usedIn": ["declaración de autoría", "control de decisiones G2"]
         }
       ],
       "transferRule": "La Guía 2 recibe hallazgos y candidatos, no requisitos aprobados. Cada decisión nueva conserva el identificador de origen o se registra como pregunta abierta antes de derivar una solución."
@@ -66,7 +72,7 @@
     "outputToNextGuide": {
       "guideId": "adso-requisitos-guia-03-web-2026",
       "name": "Paquete de entrada para prototipado y validación",
-      "requiredArtifacts": ["HU priorizada", "RF/RNF relacionados", "escenarios BDD", "caso de uso", "datos candidatos", "estados de interfaz", "criterios de prueba", "matriz de trazabilidad", "tarea con Definición de Listo para Iniciar", "preguntas de validación"],
+      "requiredArtifacts": ["HU priorizada", "RF/RNF relacionados", "escenarios BDD", "caso de uso", "datos candidatos", "estados de interfaz", "criterios de prueba", "matriz de trazabilidad", "tarea con Definición de Listo para Iniciar", "preguntas de validación", "bitácora humano–IA"],
       "transferRule": "La Guía 3 prototipa y valida el comportamiento definido aquí; no debe inventar pantallas, estados o componentes que no tengan requisito, criterio o pregunta explícita."
     },
     "checkpoints": [
@@ -94,6 +100,11 @@
         "id": "G2-C5",
         "evidence": "Evidencia final integradora de cinco incrementos y paquete de transferencia a la Guía 3.",
         "criterion": "Integra los productos en orden, demuestra una cadena completa desde la fuente hasta la tarea, registra la revisión y permite que diseño, desarrollo y pruebas continúen sin inventar comportamiento."
+      },
+      {
+        "id": "G2-C6",
+        "evidence": "Bitácora humano–IA de la especificación.",
+        "criterion": "Declara el uso o no uso de IA; verifica cada salida contra fuentes, pruebas o personas y conserva la decisión profesional humana."
       }
     ]
   },
@@ -126,7 +137,7 @@
   "evidence": {
     "knowledge": ["Relación entre evidencia de la Guía 1, contexto, historia de usuario, Requisito Funcional, Requisito No Funcional, reglas, restricciones y criterios verificables."],
     "performance": ["Construcción incremental de un corte vertical documentado, revisión por pares, priorización MoSCoW, validación con Desarrollo Guiado por Comportamiento y defensa de decisiones candidatas."],
-    "product": ["Paquete mínimo listo para construcción en el que un hallazgo de la Guía 1 puede seguirse hasta una historia priorizada, requisitos, criterios, pruebas, datos, responsabilidades y una tarea lista para prototipar, estimar y desarrollar en la Guía 3."]
+    "product": ["Paquete mínimo listo para prototipado en el que un hallazgo de la Guía 1 puede seguirse hasta una historia priorizada, requisitos, criterios, pruebas, datos, responsabilidades, bitácora humano–IA y una tarea lista para la Guía 3."]
   },
   "finalEvidence": {
     "id": "GA2-220501093-AA1-EV02",
@@ -139,7 +150,7 @@
       {"id": "IN-04", "name": "Comprobar la coherencia", "output": "Matriz de trazabilidad, plan de pruebas y revisión con pares o interesado."},
       {"id": "IN-05", "name": "Preparar construcción y transferencia", "output": "Ficha de construcción con datos, estados, responsabilidades, dependencias, riesgos y una tarea priorizada con Definición de Listo para Iniciar."}
     ],
-    "minimumProduct": ["un corte vertical trazado desde la fuente hasta una tarea de construcción", "una Historia de Usuario priorizada, pequeña y valiosa", "los Requisitos Funcionales y No Funcionales necesarios para ejecutar y verificar esa historia", "criterios de éxito y situaciones no exitosas relevantes", "un caso de uso completo para la historia priorizada", "ficha de construcción con datos, estados, reglas, permisos, responsabilidades y dependencias", "pruebas con datos y condición de aprobación", "registro de validación, decisiones pendientes y versión del documento"],
+    "minimumProduct": ["un corte vertical trazado desde la fuente hasta una tarea de construcción", "una Historia de Usuario priorizada, pequeña y valiosa", "los Requisitos Funcionales y No Funcionales necesarios para ejecutar y verificar esa historia", "criterios de éxito y situaciones no exitosas relevantes", "un caso de uso completo para la historia priorizada", "ficha de construcción con datos, estados, reglas, permisos, responsabilidades y dependencias", "pruebas con datos y condición de aprobación", "registro de validación, decisiones pendientes y versión del documento", "bitácora humano–IA con declaración de uso o no uso"],
     "assessmentInstruments": ["rúbrica analítica de evidencia final", "lista de chequeo de trazabilidad", "guion de revisión con pares o interesado"]
   },
   "assessment": {
@@ -153,7 +164,8 @@
       "Distingue Desarrollo Guiado por Comportamiento (BDD) como práctica, Gherkin como sintaxis y Cucumber como herramienta de automatización.",
       "Construye una ficha de caso de uso con flujo principal, alternativa, precondiciones, postcondición y evidencia.",
       "Deriva datos, interfaz, lógica, seguridad y pruebas sin confundir candidatos de diseño con decisiones aprobadas.",
-      "Entrega una tarea pequeña, estimable, trazable y comprobable que cumple la Definición de Listo para Iniciar."
+      "Entrega una tarea pequeña, estimable, trazable y comprobable que cumple la Definición de Listo para Iniciar.",
+      "Distingue propuestas de IA de decisiones validadas y documenta verificación, riesgos y responsabilidad humana."
     ],
     "instruments": ["Lista de chequeo de calidad", "Rúbrica analítica de especificación", "Rúbrica de evidencia final integradora", "Lista de chequeo de trazabilidad", "Guía de validación con interesados"]
   },
@@ -201,7 +213,7 @@
     "La trazabilidad no es una relación uno a uno: una historia puede producir varios requisitos y un requisito no funcional puede afectar varias historias; el vínculo explícito vale más que compartir un número."
   ],
   "changeControl": {
-    "date": "2026-08-11",
-    "summary": "Producto reformulado como paquete mínimo listo para construcción: una cadena completa, cantidades determinadas por el comportamiento, ficha de preparación y tarea con Definición de Listo para Iniciar. El diagrama de arquitectura se conserva como apoyo opcional y deja de ser requisito del producto."
+    "date": "2026-08-12",
+    "summary": "Se agregó una ruta esencial separada de la profundización profesional, una cadena única de identificadores para las cuatro guías y una bitácora humano–IA verificable dentro del producto final."
   }
 }

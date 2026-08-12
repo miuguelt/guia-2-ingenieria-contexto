@@ -40,6 +40,7 @@
 - Go mínimo 1.25, módulos `github.com/devbrain/`, sin `panic()` en handlers y sin IP/puertos hardcodeados.
 - Los errores para el operador deben ser claros, accionables y en español.
 - Aplicar el estilo, pruebas, linters y `AGENTS.md` específicos del proyecto.
+- **TDD Autónomo Obligatorio**: Al desarrollar una nueva lógica de negocio, función o corregir un bug, el agente debe escribir primero la prueba unitaria (Test) que demuestre el comportamiento esperado, y confirmar que falla, antes de escribir o modificar el código de la aplicación para hacerla pasar.
 
 ## 6. UI, legibilidad y Colombia
 
@@ -64,5 +65,12 @@
 - Todo proyecto nuevo alojado en `_projects/` o en la raíz de Aplicaciones debe ser registrado automáticamente en el ecosistema.
 - El registro se activa de forma transparente mediante el auto-descubrimiento en `Sync-DashboardProjects.ps1`, el arranque del ecosistema (`START-DEVBRAIN.ps1`) y el script `New-DevBrainProject.ps1`.
 - Al crear una nueva carpeta o proyecto bajo `_projects/`, el agente debe asegurar que el auto-registro complete la sincronización en `_core/config.yml`, `port-registry.json`, `devbrain-runtime-manifest.json` y PostgreSQL `master_db`.
+
+## 9. Creación de Guías y Recursos Educativos (DevBrain Learner SDK)
+
+- Toda nueva guía interactiva o recurso educativo creado en la plataforma debe utilizar obligatoriamente el `devbrain-learner-sdk` (vía IIFE bundle o importación ES6).
+- **Prohibido** crear o copiar archivos manuales como `gamification.js` o lógica de simuladores duplicada. Todo el manejo de XP, logros, navegación (SPA) y persistencia debe inicializarse centralmente mediante `window.DevBrainSDK.createApp()`.
+- Al recibir una petición para construir o mejorar una guía, DevBrain debe inyectar automáticamente este SDK e instanciar la plataforma consumiendo sus herramientas nativas (Builders y Simuladores).
+- El agente debe auto-seleccionar el contexto, skills y herramientas relevantes para guías interactivas sin necesidad de que el operador lo exija explícitamente.
 
 Este archivo es el estándar de desarrollo distribuido a los proyectos. No reemplaza las fuentes de autoridad operativa indicadas en la sección 1.

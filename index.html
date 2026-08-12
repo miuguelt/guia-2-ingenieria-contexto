@@ -168,6 +168,34 @@
           <p class="handoff-note"><strong>Si todavía no tienes proyecto:</strong> usa el caso ficticio “Control de ingreso de equipos”, conserva la etiqueta <em>ejemplo didáctico</em> y reemplázalo por evidencia autorizada en la transferencia a tu proyecto.</p>
         </section>
 
+        <section class="learning-lanes reveal" aria-labelledby="learning-lanes-title">
+          <div class="learning-lanes-heading">
+            <div><p class="overline">Orientación para quien empieza desde cero</p><h3 id="learning-lanes-title">Primero completa la ruta esencial; después profundiza donde tu proyecto lo necesite</h3></div>
+            <p>La guía contiene material profesional amplio, pero el producto mínimo no exige memorizarlo todo ni producir documentos por volumen. La ruta esencial construye una sola capacidad de extremo a extremo.</p>
+          </div>
+          <div class="learning-lanes-grid">
+            <article class="learning-lane learning-lane--essential">
+              <span>Obligatoria · evidencia mínima</span>
+              <h4>Ruta esencial</h4>
+              <ol>
+                <li>Elige una evidencia y un hallazgo validado de G1.</li>
+                <li>Escribe contexto, alcance, actor, regla y preguntas.</li>
+                <li>Prioriza una Historia de Usuario pequeña y valiosa.</li>
+                <li>Deriva los RF/RNF necesarios y criterios de aceptación.</li>
+                <li>Diseña pruebas, conserva trazabilidad y registra la revisión.</li>
+                <li>Entrega una tarea lista para prototipar en G3.</li>
+              </ol>
+            </article>
+            <article class="learning-lane">
+              <span>Según riesgo o solicitud del instructor</span>
+              <h4>Profundización profesional</h4>
+              <p>Amplía con más historias, modelo de datos, matriz de permisos, caso de uso detallado, integraciones, arquitectura candidata, SOW o métricas avanzadas solo cuando ayuden a tomar una decisión real.</p>
+              <p><strong>Regla:</strong> profundizar agrega claridad y control de riesgo; nunca reemplaza una cadena mínima coherente.</p>
+            </article>
+          </div>
+          <div class="series-trace" role="note"><strong>Identificadores que continúan en toda la serie</strong><code>E-01 → H-01 → CTX-01 → HU-01 → RF/RNF-01 → CA-01 → PR-01 → UI-01 → VAL-01 → BL-01</code><span>G2 construye hasta prueba y backlog; G3 agrega interfaz y validación; G4 planea el ítem sin romper los vínculos.</span></div>
+        </section>
+
         <details class="acronym-guide reveal" open>
           <summary><span>Diccionario inicial</span><strong>Qué significan las siglas que encontrarás</strong></summary>
           <p class="acronym-guide-intro">Una <strong>sigla</strong> forma una palabra corta con letras iniciales; una <strong>abreviatura</strong> reduce una palabra o expresión. No debes memorizarlas de inmediato: vuelve a este diccionario cuando lo necesites.</p>
@@ -281,6 +309,26 @@
           <div><span class="quality-icon">V</span><strong>Verificable</strong><small>Se puede probar</small></div>
           <div><span class="quality-icon">T</span><strong>Trazable</strong><small>Conecta con el objetivo</small></div>
         </div>
+
+        <section class="human-ai-block reveal" aria-labelledby="g2-human-ai-title">
+          <div><p class="overline">Criterio humano ante inteligencia artificial</p><h3 id="g2-human-ai-title">Una respuesta convincente no es una especificación validada</h3><p>La IA puede proponer redacciones, escenarios alternativos o preguntas de calidad. No conoce por sí sola la fuente, el presupuesto, las obligaciones, los conflictos entre actores ni el impacto de una decisión. La persona analista debe verificar, negociar, registrar incertidumbre y asumir la responsabilidad.</p></div>
+          <div class="human-ai-grid">
+            <div><strong>Puede apoyar</strong><span>Detectar ambigüedad, generar contraejemplos, comparar variantes y revisar consistencia de identificadores.</span></div>
+            <div><strong>Debes verificar</strong><span>Cada afirmación contra E-*, H-* y CTX-*; cada umbral con interesados y cada solución con el equipo técnico.</span></div>
+            <div><strong>Debes proteger</strong><span>Datos personales, secretos, derechos de autor, accesibilidad, seguridad y grupos afectados por sesgos.</span></div>
+          </div>
+          <pre class="human-ai-template"><code>BITÁCORA HUMANO–IA · G2
+Uso: [no utilizada / utilizada]
+Artefacto apoyado: [HU / RF / RNF / CA / PR / otro]
+Propósito y prompt:
+Datos compartidos y anonimización:
+Salida recibida:
+Fuentes, pruebas o personas usadas para verificar:
+Errores, sesgos o riesgos detectados:
+Decisión humana: [aceptar / modificar / rechazar]
+Justificación, responsable y fecha:</code></pre>
+          <p class="human-ai-rule"><strong>Sin automatización ciega:</strong> nunca copies una salida de IA como requisito aprobado. Si no usaste IA, registra “No utilizada” y describe tu método de revisión.</p>
+        </section>
 
         <!-- Conexión Didáctica: De la Recolección (Guía 1) a la Especificación (Guía 2) -->
         <div class="elicit-bridge-banner reveal" style="margin-top: 24px; background: rgba(30, 41, 59, 0.8); border-left: 4px solid #38bdf8; border-radius: 0 8px 8px 0; padding: 16px 20px;">
@@ -2247,6 +2295,7 @@ FECHA DE ENTREGA
             <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--primary, #0055ff);">✅</span> <div><strong>04 · Verificación y trazabilidad:</strong> matriz que conecta fuente, historia, requisito, criterio, prueba y tarea; casos de prueba con datos, resultado esperado y condición de aprobación; y registro de la revisión. Usa <a href="#instrumentos" data-scroll style="color:inherit;">I-05 e I-06</a>.</div></li>
             <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--primary, #0055ff);">✅</span> <div><strong>05 · Ficha lista para construcción:</strong> entradas y salidas, datos que deben conservarse, reglas, permisos, estados de interfaz, responsabilidades, dependencias, riesgos, preguntas pendientes y una tarea priorizada con Definición de Listo para Iniciar. Usa el <a href="#construccion" data-scroll style="color:inherit;">lienzo de construcción e I-07</a>.</div></li>
             <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--primary, #0055ff);">✅</span> <div><strong>06 · Control de cambios y validación:</strong> versión, fecha, responsables, comentarios recibidos, decisión tomada y asuntos que todavía requieren confirmación del interesado, instructor o equipo.</div></li>
+            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--primary, #0055ff);">✅</span> <div><strong>07 · Bitácora humano–IA:</strong> declaración de uso o no uso. Si se utilizó IA, incluye propósito, datos protegidos, salida, verificación, riesgos, decisión humana, responsable y fecha.</div></li>
           </ul>
 
           <div class="deliverable-scope-note" role="note">
@@ -2303,7 +2352,15 @@ Dependencias y riesgos: [dependencia / fallo esperado / respuesta]
 Tarea priorizada: [BL-* · título / alcance / criterios / pruebas / tamaño]
 Definición de Listo para Iniciar: [cumple / no cumple + condición pendiente]
 
-6. VALIDACIÓN Y CONTROL DE CAMBIOS
+6. BITÁCORA HUMANO–IA
+Uso: [no utilizada / utilizada]
+Artefacto y propósito: [qué se apoyó y para qué]
+Datos compartidos y protección: [anonimización / exclusiones]
+Salida y verificación: [resultado / fuentes / pruebas / personas]
+Riesgos y decisión humana: [aceptar / modificar / rechazar + motivo]
+Responsable y fecha: [nombre / rol / fecha]
+
+7. VALIDACIÓN Y CONTROL DE CAMBIOS
 Revisó: [persona y rol]   Fecha: [año-mes-día]
 Observaciones: [comentarios]
 Cambios aceptados: [decisión y motivo]
@@ -2330,7 +2387,7 @@ Próximo uso: [qué recibe la Guía 3 para prototipar y validar]</code></pre>
                   <tr><td><span class="delivery-step">03</span>Especificar</td><td><a href="#requisitos" data-scroll>Requisitos y criterios BDD</a></td><td>Deriva lo necesario para la historia, valida el checkpoint y completa el caso de uso.</td><td>RF/RNF, criterios de aceptación, excepciones y caso de uso.</td></tr>
                   <tr><td><span class="delivery-step">04</span>Comprobar</td><td><a href="#instrumentos" data-scroll>I-05 e I-06</a></td><td>Relaciona evidencia, requisito, criterio, prueba y tarea; luego practica la revisión en el laboratorio.</td><td>Matriz, plan de pruebas y registro de revisión.</td></tr>
                   <tr><td><span class="delivery-step">05</span>Preparar</td><td><a href="#construccion" data-scroll>Lienzo e I-07</a></td><td>Define datos, estados, responsabilidades, dependencias y la tarea priorizada.</td><td>Ficha de construcción y primer corte con Definición de Listo para Iniciar.</td></tr>
-                  <tr><td><span class="delivery-step">06</span>Entregar</td><td><a href="#desafio" data-scroll>Evidencia final</a></td><td>Integra la cadena, registra la revisión y aplica el control de calidad.</td><td>PDF y paquete reutilizable por diseño, desarrollo y pruebas.</td></tr>
+                  <tr><td><span class="delivery-step">06</span>Entregar</td><td><a href="#desafio" data-scroll>Evidencia final</a></td><td>Integra la cadena, completa la bitácora humano–IA, registra la revisión y aplica el control de calidad.</td><td>PDF y paquete reutilizable por diseño, desarrollo y pruebas.</td></tr>
                 </tbody>
               </table>
             </div>
@@ -2349,6 +2406,7 @@ Próximo uso: [qué recibe la Guía 3 para prototipar y validar]</code></pre>
               <li>La ficha de construcción define datos, estados, responsabilidades y límites sin convertir decisiones pendientes en hechos.</li>
               <li>La tarea priorizada cumple la Definición de Listo para Iniciar: es pequeña, estimable, trazable, comprobable y no tiene una pregunta bloqueante.</li>
               <li>La revisión registra quién participó, qué observó y qué cambió; no quedan marcadores como <code>[completar]</code>.</li>
+              <li>La bitácora declara el uso o no uso de IA; toda salida utilizada muestra cómo fue verificada y qué decidió la persona responsable.</li>
               <li>El PDF se abre correctamente, usa la nomenclatura solicitada y permite continuar en la Guía 3 sin volver a levantar la misma información.</li>
             </ul>
           </div>

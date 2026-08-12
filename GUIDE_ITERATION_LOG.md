@@ -78,3 +78,10 @@
 - Regla de suficiencia: una cadena `E → HU → RF/RNF → CA → PR → BL` completa y verificable reemplaza los mínimos arbitrarios de tres historias, tres RF y dos RNF. Se documentan tantos elementos como el comportamiento y sus riesgos necesiten.
 - Prueba de utilidad: el cierre explicita qué información reutilizan diseño, desarrollo y pruebas, enlaza cada parte del producto con la sección e instrumento que permite producirla e incluye una estructura completa y copiable del PDF.
 - Verificación: contrato educativo estricto aprobado sin errores ni advertencias; calidad web con 0 errores; bloques de código HTML con 0 hallazgos; JSON y JavaScript válidos; 166 identificadores únicos y 13 anclas internas resueltas; HTML, CSS y JavaScript respondieron HTTP 200.
+
+## 2026-08-12 - ruta esencial y responsabilidad humano–IA
+
+- Orientación: Se separó la ruta esencial obligatoria de la profundización profesional para que un aprendiz de primera vez pueda completar un corte vertical sin perderse en artefactos opcionales.
+- Trazabilidad de serie: Se hizo visible la cadena `E → H → CTX → HU → RF/RNF → CA → PR → UI → VAL → BL`, que G2 inicia y las guías siguientes extienden.
+- Evidencia: El PDF incorpora una bitácora humano–IA con declaración de uso o no uso, protección de datos, verificación, riesgos, decisión humana y responsable.
+- Regla profesional: Una salida de IA puede iniciar una pregunta o variante, pero nunca adquiere estado de requisito aprobado sin contrastarse con evidencia y personas autorizadas.
